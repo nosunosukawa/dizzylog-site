@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めまい日記 — サポート</title>
+<meta name="description" content="めまい日記（DizzyLog）のサポートページ。発作をその場で3タップ記録、受診用PDFに。サブスクリプションはありません。">
+<style>
+  /* 配色はアプリ本体の src/theme/colors.ts と同じ値 */
+  :root{
+    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
+    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --danger:#A63A3A; --line:#C7D7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
+      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --danger:#E38A8C; --line:#26465C;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+    line-height:1.75;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto}
+  header{margin:20px 0 32px}
+  h1{font-size:34px;line-height:1.15;letter-spacing:-.5px;font-weight:800}
+  header p{margin-top:10px;font-size:16px;color:var(--ink-soft)}
+  .claim{display:inline-block;margin-top:16px;font-size:13px;font-weight:800;
+    color:var(--accent);border:1.5px solid var(--accent);border-radius:8px;padding:6px 11px}
+  .lang{float:right;font-size:13.5px;font-weight:600}
+  h2{font-size:12px;letter-spacing:1.4px;color:var(--ink-soft);margin:38px 0 12px;font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;display:flex;gap:14px;align-items:stretch}
+  .card + .card{margin-top:10px}
+  .pad{width:5px;border-radius:2.5px;flex:none;background:var(--line)}
+  .pad.calm{background:var(--calm)} .pad.warn{background:var(--warn)}
+  .pad.danger{background:var(--danger)} .pad.accent{background:var(--accent)}
+  .body{flex:1}
+  .card h3{font-size:16px;margin-bottom:6px}
+  .card p,.card li{font-size:15px}
+  .card ul{padding-left:20px;margin-top:8px}
+  .card li{margin-top:4px}
+  .card p + p{margin-top:8px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--ink-soft);font-size:13.5px}
+  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="lang" href="index.html">English</a>
+    <h1>めまい日記</h1>
+    <p>めまいの発作を、起きたその場で3タップで記録。医師が1分で読める形に変えます。</p>
+    <span class="claim">サブスクリプションはありません</span>
+  </header>
+
+  <h2>サポート</h2>
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>お問い合わせ</h3>
+      <p>ご質問・不具合のご報告・ご要望はこちらへ:
+         <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
+      <p class="muted">個人で開発しています。すべて目を通しており、返信には1〜2日いただくことが
+         多いです。記録中に不具合が起きた場合は、だいたいの日時とどこを操作したかをお知らせください。
+         アプリに書かれた内容は開発者からは一切見えないため、お送りいただいた情報だけが手がかりになります。</p>
+    </div>
+  </div>
+
+  <h2>よくあるご質問</h2>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>無料でどこまで使えますか</h3>
+      <p>発作の最中に必要な部分は無料です。3タップでの記録、持続時間タイマー、きっかけ・随伴症状・
+         服薬の記録、そしてこれまでの記録の一覧。試用期間ではなく、期限もありません。</p>
+      <p>買い切りの「DizzyLog Pro」で、受診用のPDFレポートと気圧グラフが加わります。
+         一度きりのお支払いで、サブスクリプションではありません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>購入したのに解除されません</h3>
+      <p>購入時と同じApple IDでサインインした状態で、<strong>設定 → 購入を復元</strong> を
+         お試しください。購入は端末ではなくApple IDに紐づくため、機種変更後も引き継がれます。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>医師にはどう渡せばいいですか</h3>
+      <p><strong>レポート</strong>を開いて期間を選び、PDFを共有します。印刷しても、ご自身宛に
+         メールしても、その場で画面をお見せしても構いません。頻度・持続時間・つらさ・きっかけ・
+         服薬が、期間ごとに1枚にまとまります。</p>
+      <p>記録そのものをCSVで書き出すこともできます。要約ではなく生の数値が必要なときにお使いください。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h3>気圧の表示は何を意味していますか</h3>
+      <p>記録した時点の気圧を控えて、発作と気圧を同じ時間軸に並べて表示します。それだけです。</p>
+      <p>気圧が発作の原因だとは言いませんし、発作を予測もしません。天候がご自身の症状に影響するか
+         どうかは、医師と相談すべきことです。このアプリの役目は、その相談を実際の日付付きで
+         できるようにすることです。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>記録したデータはどこにありますか</h3>
+      <p>記録はすべて端末内のアプリの中に保存されます。アカウントもログインもサーバーもありません。
+         ご自身のiPhoneまたはiCloudのバックアップには含まれますが、それを管理できるのはご本人だけです。</p>
+      <p>唯一外に出るのは、丸めた位置情報だけです。近くの気圧を調べるためだけに使われ、
+         居場所が分かる精度ではありません。詳細は<a href="privacy.ja.html">プライバシーポリシー</a>に
+         記載しています。地域を手動で選べば、位置情報を許可しないまま使うこともできます。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>位置情報を許可しなくても使えますか</h3>
+      <p>使えます。<strong>設定</strong>で地域を手動で選ぶか、気圧の機能自体を使わないこともできます。
+         発作の記録はどちらの場合も同じように行えます。</p>
+    </div>
+  </div>
+
+  <h2>大切なお願い</h2>
+  <div class="card">
+    <div class="pad danger"></div>
+    <div class="body">
+      <h3>めまい日記は記録のためのアプリで、医療機器ではありません</h3>
+      <p>お書きになったことを記録するだけです。診断も、発作の予測も、治療の助言も行いません。</p>
+      <ul>
+        <li>初めての、あるいは急な・強いめまいは、アプリではなく医師にご相談ください。</li>
+        <li>めまいに加えて、胸の痛み、片側の脱力、ろれつが回らない、ものが二重に見える、
+            突然の難聴がある場合は緊急です。ただちに受診してください。</li>
+        <li>ここで見たグラフを理由に、薬を変えたり中止したりしないでください。</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 川崎 信隆 · <a href="privacy.ja.html">プライバシーポリシー</a> ·
+    <a href="index.html">English</a>
+  </footer>
+
+</div>
+</body>
+</html>

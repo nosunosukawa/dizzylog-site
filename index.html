@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DizzyLog — Support</title>
+<meta name="description" content="Support for DizzyLog, the vertigo and dizziness diary. Log a spell in 3 taps, get a doctor-ready PDF. No subscription.">
+<style>
+  /* 配色はアプリ本体の src/theme/colors.ts と同じ値。
+     画面と地続きに見えることが、審査でも利用者にとっても信用になる */
+  :root{
+    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
+    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --danger:#A63A3A; --line:#C7D7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
+      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --danger:#E38A8C; --line:#26465C;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto}
+
+  header{margin:20px 0 32px}
+  h1{font-size:38px;line-height:1.05;letter-spacing:-1px;font-weight:800}
+  header p{margin-top:10px;font-size:17px;color:var(--ink-soft)}
+  .claim{display:inline-block;margin-top:16px;font-size:13px;font-weight:800;
+    letter-spacing:.4px;color:var(--accent);border:1.5px solid var(--accent);
+    border-radius:8px;padding:6px 11px}
+  .lang{float:right;font-size:13.5px;font-weight:600}
+
+  h2{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-soft);
+    margin:38px 0 12px;font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;display:flex;gap:14px;align-items:stretch}
+  .card + .card{margin-top:10px}
+  /* 左端の色片はアプリの強度パッドと同じ意匠 */
+  .pad{width:5px;border-radius:2.5px;flex:none;background:var(--line)}
+  .pad.calm{background:var(--calm)} .pad.warn{background:var(--warn)}
+  .pad.danger{background:var(--danger)} .pad.accent{background:var(--accent)}
+  .body{flex:1}
+  .card h3{font-size:16px;margin-bottom:6px;letter-spacing:-.2px}
+  .card p,.card li{font-size:15px}
+  .card ul{padding-left:20px;margin-top:8px}
+  .card li{margin-top:4px}
+  .card p + p{margin-top:8px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--ink-soft);font-size:13.5px}
+  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+</style>
+<meta property="og:title" content="DizzyLog — Vertigo diary, without the subscription">
+<meta property="og:description" content="Log a dizzy spell in 3 taps, right when it happens. Turn it into a doctor-ready PDF.">
+<meta property="og:url" content="https://nosunosukawa.github.io/dizzylog-site/">
+<meta property="og:type" content="website">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="lang" href="index.ja.html">日本語</a>
+    <h1>DizzyLog</h1>
+    <p>Log a dizzy spell in 3 taps, right when it happens — and turn your log into
+       something a doctor can read in a minute.</p>
+    <span class="claim">No subscription. Ever.</span>
+  </header>
+
+  <h2 id="support">Support</h2>
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>Contact</h3>
+      <p>Questions, bug reports and requests:
+         <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
+      <p class="muted">Solo developer — I read everything, and replies usually take a day or two.
+         If something went wrong while you were recording an attack, tell me roughly when it
+         happened and what you tapped; nothing you write in the app is visible to me, so the
+         details you send are all I have to work from.</p>
+    </div>
+  </div>
+
+  <h2>Common questions</h2>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>What is free, and what does the one-time unlock add?</h3>
+      <p>Free covers the part you need during an attack: recording a spell in 3 taps, the
+         duration timer, triggers, accompanying symptoms, medication, and the full list of
+         everything you have recorded. That is not a trial and it does not expire.</p>
+      <p>The one-time DizzyLog Pro purchase adds the doctor-ready PDF report and the
+         barometric-pressure charts. It is a single purchase, not a subscription.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>I paid but the app still shows the lock</h3>
+      <p>Open <strong>Settings → Restore purchase</strong> while signed in with the same Apple ID
+         you bought it with. The unlock is tied to the Apple ID, not the device, so it carries
+         over to a new phone.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>How do I give the report to my doctor?</h3>
+      <p>Open <strong>Report</strong>, pick the period, and share the PDF — print it, mail it to
+         yourself, or hand your phone over. It is one page per period: how often, how long, how
+         severe, what you noted as triggers, and what you took.</p>
+      <p>There is also a CSV export of every raw record, in case you or your clinic want the
+         numbers rather than the summary.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h3>What does the barometric pressure actually mean?</h3>
+      <p>DizzyLog records the air pressure at the moment you log an attack, and the charts show
+         your attacks and the pressure on the same timeline. That is all it does.</p>
+      <p>It does not tell you that pressure caused an attack, and it does not predict one.
+         Whether weather affects your symptoms is a question for you and your doctor — the app's
+         job is to put the two side by side so the question can be asked with real dates on it.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad calm"></div>
+    <div class="body">
+      <h3>Where is my data, and does it leave my phone?</h3>
+      <p>Everything you record stays in the app on your device. There is no account, no sign-in
+         and no server. Your records are included in your own iPhone or iCloud device backup,
+         which only you control.</p>
+      <p>The one thing that goes out is a rounded location — used only to look up the air
+         pressure near you, and coarse enough that it does not identify where you are. The
+         details are in the <a href="privacy.html">privacy policy</a>, and you can also pick a
+         region by hand and never grant location at all.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad accent"></div>
+    <div class="body">
+      <h3>Can I use it without giving location access?</h3>
+      <p>Yes. Choose a region manually in <strong>Settings</strong>, or skip pressure entirely.
+         Recording attacks does not depend on it.</p>
+    </div>
+  </div>
+
+  <h2>Important</h2>
+  <div class="card">
+    <div class="pad danger"></div>
+    <div class="body">
+      <h3>DizzyLog is a journal, not a medical device</h3>
+      <p>It records what you tell it. It does not diagnose, does not predict attacks, and does
+         not give treatment advice.</p>
+      <ul>
+        <li>New, sudden or severe dizziness needs a doctor, not an app.</li>
+        <li>Dizziness with chest pain, weakness on one side, trouble speaking, double vision or
+            sudden hearing loss is an emergency — seek care immediately.</li>
+        <li>Never change or stop a medication because of something you saw in a chart here.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Nobutaka Kawasaki · <a href="privacy.html">Privacy policy</a> ·
+    <a href="index.ja.html">日本語</a>
+  </footer>
+
+</div>
+</body>
+</html>

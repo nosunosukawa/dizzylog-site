@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DizzyLog — Privacy Policy</title>
+<meta name="description" content="DizzyLog collects nothing. Your records stay on your device. The only outbound request is a rounded location used to look up air pressure.">
+<style>
+  /* index.html と同じトークン(アプリ本体の src/theme/colors.ts 由来) */
+  :root{
+    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
+    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --line:#C7D7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
+      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --line:#26465C;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto}
+  header{margin:20px 0 30px}
+  h1{font-size:30px;line-height:1.15;letter-spacing:-.6px;font-weight:800}
+  .lead{margin-top:14px;font-size:18px;line-height:1.5;font-weight:600}
+  .date{margin-top:10px;font-size:13px;color:var(--ink-soft)}
+  .lang{float:right;font-size:13.5px;font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;display:flex;gap:14px;align-items:stretch}
+  .card + .card{margin-top:10px}
+  .pad{width:5px;border-radius:2.5px;flex:none;background:var(--calm)}
+  .pad.warn{background:var(--warn)}
+  .body{flex:1}
+  .card h2{font-size:16px;margin-bottom:6px;letter-spacing:-.2px}
+  .card p{font-size:15px}
+  .card p + p{margin-top:8px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="lang" href="privacy.ja.html">日本語</a>
+    <h1>DizzyLog Privacy Policy</h1>
+    <p class="lead">DizzyLog collects nothing. Your records stay on your device. There is no
+       account, no analytics, no advertising and no server of ours to send anything to.</p>
+    <p class="date">Last updated: August 2026</p>
+  </header>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>What we collect</h2>
+      <p>Nothing. DizzyLog has no analytics, no crash reporting, no advertising identifiers and
+         no third-party SDKs that gather data. The developer never receives your records, your
+         symptoms, your medication, your device identifiers or your location.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Where your data lives</h2>
+      <p>Your attacks, durations, severities, triggers, symptoms, medication notes and reminders
+         are stored in a database inside the app on your device. They are included in your own
+         iPhone or iCloud device backup, which only you control. Deleting the app deletes this
+         data. You can export everything yourself as CSV or as a PDF report at any time.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h2>Location and air pressure</h2>
+      <p>This is the one thing that leaves your device, so it is worth stating precisely.</p>
+      <p>To attach the air pressure to an attack, DizzyLog needs to know roughly where you are.
+         Location access is <strong>"while using the app" only</strong>, and the coordinate is
+         <strong>rounded to a grid of roughly 28 km</strong> before it is used — enough to pick
+         the right weather area, not enough to say where you are. The rounded coordinate is sent
+         to Apple's WeatherKit service to look up the pressure. Apple states that WeatherKit does
+         not use this data to track or identify you; see Apple's privacy policy for their terms.</p>
+      <p>The app itself never sends or stores your location anywhere else, and never sends your
+         records with it. You can also choose a region by hand and never grant location access
+         at all — recording attacks does not depend on it.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Health data</h2>
+      <p>DizzyLog does not read from or write to Apple Health. What you record here stays inside
+         this app.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Purchases</h2>
+      <p>The one-time Pro unlock is processed by Apple through the App Store. DizzyLog only asks
+         Apple whether this Apple ID owns the unlock. Payment details are handled by Apple and are
+         never visible to the app or the developer.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Notifications</h2>
+      <p>Reminders are scheduled locally on your device. DizzyLog has no push server and no push
+         token — nothing about your reminders leaves your iPhone.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Children</h2>
+      <p>DizzyLog is a general-audience journaling app rated 4+. It does not knowingly collect any
+         information from anyone, including children.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h2>Not a medical device</h2>
+      <p>DizzyLog records what you tell it. It does not diagnose, does not predict attacks and
+         does not give treatment advice. Talk to a doctor about your symptoms.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>Changes &amp; contact</h2>
+      <p>If this policy ever changes, the updated text ships with the app and appears on this
+         page with a new date.</p>
+      <p>Questions about this policy:
+         <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Nobutaka Kawasaki · <a href="index.html">Support</a> ·
+    <a href="privacy.ja.html">日本語</a>
+  </footer>
+
+</div>
+</body>
+</html>

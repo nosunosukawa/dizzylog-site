@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めまい日記 — プライバシーポリシー</title>
+<meta name="description" content="めまい日記は何も収集しません。記録は端末の中だけに保存されます。外に出るのは気圧を調べるための丸めた位置情報だけです。">
+<style>
+  :root{
+    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
+    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --line:#C7D7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
+      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --line:#26465C;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+    line-height:1.75;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto}
+  header{margin:20px 0 30px}
+  h1{font-size:28px;line-height:1.25;font-weight:800}
+  .lead{margin-top:14px;font-size:17px;line-height:1.65;font-weight:600}
+  .date{margin-top:10px;font-size:13px;color:var(--ink-soft)}
+  .lang{float:right;font-size:13.5px;font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;display:flex;gap:14px;align-items:stretch}
+  .card + .card{margin-top:10px}
+  .pad{width:5px;border-radius:2.5px;flex:none;background:var(--calm)}
+  .pad.warn{background:var(--warn)}
+  .body{flex:1}
+  .card h2{font-size:16px;margin-bottom:6px}
+  .card p{font-size:15px}
+  .card p + p{margin-top:8px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="lang" href="privacy.html">English</a>
+    <h1>めまい日記 プライバシーポリシー</h1>
+    <p class="lead">めまい日記は何も収集しません。記録は端末の中だけに保存されます。
+       アカウントも、解析も、広告も、当方のサーバーもありません。</p>
+    <p class="date">最終更新: 2026年8月</p>
+  </header>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>収集する情報</h2>
+      <p>ありません。解析ツール、クラッシュレポート、広告識別子、データを集める第三者SDKを
+         一切使っていません。あなたの記録・症状・服薬の内容・端末の識別子・位置情報のいずれも、
+         開発者が受け取ることはありません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>データの保存場所</h2>
+      <p>発作・持続時間・つらさ・きっかけ・随伴症状・服薬のメモ・通知の設定は、端末内の
+         アプリの中のデータベースに保存されます。ご自身のiPhoneまたはiCloudのバックアップには
+         含まれますが、それを管理できるのはご本人だけです。アプリを削除すればデータも消えます。
+         CSVやPDFとして、いつでもご自身で書き出せます。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h2>位置情報と気圧</h2>
+      <p>ここが唯一、端末の外に出る部分なので、正確に記します。</p>
+      <p>発作に気圧を添えるため、おおよその現在地が必要になります。位置情報の利用は
+         <strong>「アプリの使用中のみ」</strong>で、座標は使う前に
+         <strong>約28km四方の格子に丸めます</strong>。気象の地点を選ぶには十分で、
+         居場所を特定するには足りない精度です。丸めた座標は、気圧を調べるために
+         AppleのWeatherKitへ送られます。AppleはWeatherKitについて、このデータを追跡や個人の
+         識別には使用しないと明示しています。詳細はAppleのプライバシーポリシーをご確認ください。</p>
+      <p>アプリがこれ以外の場所へ位置情報を送ったり保存したりすることはなく、記録の内容を
+         一緒に送ることもありません。地域を手動で選べば、位置情報を許可しないまま使うこともできます。
+         発作の記録はそれに依存しません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>ヘルスケアデータ</h2>
+      <p>Appleの「ヘルスケア」との読み書きは行いません。ここで記録した内容は、このアプリの中に
+         留まります。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>購入について</h2>
+      <p>買い切りのPro解除は、App Storeを通じてAppleが処理します。アプリはこのApple IDが
+         解除を保有しているかどうかをAppleに尋ねるだけです。お支払いの情報はAppleが扱い、
+         アプリや開発者から見えることはありません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>通知</h2>
+      <p>通知は端末内でローカルに予約されます。プッシュ通知のサーバーもトークンも持たないため、
+         通知に関する情報がiPhoneの外に出ることはありません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>お子様について</h2>
+      <p>本アプリは4+の一般向け記録アプリです。お子様を含め、どなたからも意図的に情報を
+         収集することはありません。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad warn"></div>
+    <div class="body">
+      <h2>医療機器ではありません</h2>
+      <p>めまい日記は、お書きになったことを記録するアプリです。診断も、発作の予測も、
+         治療の助言も行いません。症状については医師にご相談ください。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pad"></div>
+    <div class="body">
+      <h2>変更とご連絡</h2>
+      <p>本ポリシーを変更する場合は、更新後の本文をアプリに同梱し、このページにも新しい日付で
+         掲載します。</p>
+      <p>本ポリシーに関するお問い合わせ:
+         <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 川崎 信隆 · <a href="index.ja.html">サポート</a> ·
+    <a href="privacy.html">English</a>
+  </footer>
+
+</div>
+</body>
+</html>
