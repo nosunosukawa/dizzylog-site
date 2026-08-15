@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めまい日記の書き方 — 受診で伝わる記録のつくり方 — めまい日記（DizzyLog）</title>
+<meta name="description" content="めまいの受診前に整えておきたい記録の項目——続いた時間・めまいの種類・起きたときの状況・耳の症状——と、医師が1分で読める形へのまとめ方。">
+<style>
+  /* index.ja.html と同じトークン */
+  :root{
+    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
+    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --danger:#A63A3A; --line:#C7D7E1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
+      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --danger:#E38A8C; --line:#26465C;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.8;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto}
+  header{margin:20px 0 8px}
+  .crumb{font-size:13.5px}
+  .lang{float:right;font-size:13.5px;font-weight:600}
+  h1{font-size:26px;line-height:1.35;letter-spacing:-.4px;font-weight:800;margin-top:10px}
+  .meta{margin-top:8px;font-size:13.5px;color:var(--ink-soft)}
+  h2{font-size:19px;font-weight:800;letter-spacing:-.2px;margin:40px 0 10px}
+  p + p{margin-top:10px}
+  .lead{margin-top:18px;font-size:16.5px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--ink-soft);font-size:13.5px}
+  .scroll{overflow-x:auto;margin-top:14px;-webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{border-collapse:collapse;min-width:640px;width:100%;font-size:14.5px}
+  th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:12.5px;color:var(--ink-soft)}
+  tbody th{white-space:nowrap}
+  tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+  .hint{margin-top:8px;font-size:12.5px;color:var(--ink-soft)}
+  @media (min-width:700px){ .hint{display:none} }
+  @media (max-width:560px){ table{font-size:13px} th,td{padding:7px 9px} }
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;margin-top:40px}
+  .cta h2{margin:0 0 8px;font-size:16px}
+  .cta p{font-size:14.5px}
+  .disclaimer{border-left:3px solid var(--warn);padding:2px 0 2px 14px;margin-top:40px}
+  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+</style>
+<meta property="og:title" content="めまい日記の書き方 — 受診で伝わる記録のつくり方">
+<meta property="og:description" content="めまいの受診前に整えておきたい記録の項目と、医師が1分で読める形へのまとめ方。">
+<meta property="og:url" content="https://nosunosukawa.github.io/dizzylog-site/dizziness-diary.ja.html">
+<meta property="og:type" content="article">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="lang" href="dizziness-diary.html">English</a>
+    <p class="crumb"><a href="index.ja.html">めまい日記（DizzyLog）</a> › ガイド</p>
+    <h1>めまい日記の書き方<br>——受診で伝わる記録のつくり方</h1>
+    <p class="meta">最終更新日: 2026年8月16日</p>
+  </header>
+
+  <p class="lead">診察の時間は短く、「ときどきぐるぐるします。月に何回かは……」から
+     始めると、限られた時間が記憶の掘り起こしに費やされます。しかも、めまいの
+     つらさは記憶を当てにできません。日記があれば、その作業を診察室の外に
+     出しておけます。何を書いておくと伝わるのか、項目ごとに理由つきで挙げます。</p>
+
+  <h2>書いておく項目と、その理由</h2>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>記録すること</th><th>なぜ医師に効くか</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">起きた日時</th>
+          <td>日付だけでなく<em>時間帯</em>も。朝方に多い・寝起きに出る・忙しい週に
+              固まる、といった偏りは、記憶からは見えません。</td></tr>
+        <tr><th scope="row">続いた時間</th>
+          <td>数秒か・数分か・数時間かを、<em>感覚ではなく測って</em>。続いた時間は
+              原因を絞り込むときに最初に注目される情報のひとつで、感覚の申告は
+              実際より長くなりがちです（「永遠に感じた」は大抵ずっと短い）。</td></tr>
+        <tr><th scope="row">どんなめまいだったか</th>
+          <td>ぐるぐる回る／ふわふわ揺れる／目の前が暗くなる（気が遠くなる）／
+              足元がふらつく。指す方向がそれぞれ違います。「めまい」の一言では
+              絞り込めません。</td></tr>
+        <tr><th scope="row">何をしていたときか</th>
+          <td>寝返り・起き上がり・上を向いた・咳き込んだ・何もしていない。
+              決まった動作のあとに出るなら、それは診察までに失われやすい
+              いちばん大事な手がかりです。</td></tr>
+        <tr><th scope="row">耳の症状</th>
+          <td>耳鳴り・耳の詰まった感じ・聞こえにくさ。毎回同じ側かどうかも。
+              めまいと<em>同時に</em>出るかどうかが重要です。</td></tr>
+        <tr><th scope="row">ほかの症状と薬</th>
+          <td>頭痛・光がまぶしい・吐き気・動悸など。飲んだ薬と、効いたかどうかも
+              書いておきます。</td></tr>
+        <tr><th scope="row">まわりの条件</th>
+          <td>天気の変化・睡眠不足・飲酒・塩分の多い食事・月経周期。
+              自分で解釈する必要はありません。書いておけば、数週間で
+              傾向のほうから見えてきます。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="hint">表は横にスワイプできます →</p>
+
+  <h2>「あとでまとめて」ではなく、その場で書く</h2>
+  <p>めまい日記がうまくいかない一番の原因は、寝る前や週末にまとめて書くことです。
+     その時点で、肝心の「正確な長さ」「始まった瞬間に何をしていたか」は消えていて、
+     残っているのは印象だけ。印象は偏ります——つらい週のあとは、全部が実際より
+     重かったことになりがちです。</p>
+  <p>実務的な結論はこうです: 記録の道具は<em>めまいの最中に使えること</em>。
+     発作の途中でメモアプリに文章は打てません。その場では「開始時刻・種類」だけを
+     2〜3タップで残し、詳細（きっかけ・耳の症状）は治まってから書き足せる形に
+     しておきます。</p>
+
+  <h2>生のメモを渡さない——まとめてから持っていく</h2>
+  <p>毎日の記録の束はデータであって、答えではありません。医師が1分で読めるのは、
+     先頭に付けた要約です: この1か月の回数・典型的な長さ・めまいの種類・
+     繰り返しているきっかけ・症状が出る側。生の記録も持参しつつ、
+     要約を先に出します。</p>
+
+  <div class="cta">
+    <h2>この形をそのまま道具にしたアプリ</h2>
+    <p>iOS アプリ<a href="index.ja.html">「めまい日記（DizzyLog）」</a>は、発作の記録が
+       3タップ（測る用のタイマー内蔵）、詳細は治まってから追記、記録は受診用の
+       要約PDFとして書き出せます。気圧は自動で一緒に記録されます。
+       買い切りで、サブスクはありません。</p>
+  </div>
+
+  <p class="disclaimer muted">この記事は記録のつけ方についての一般的な情報であり、
+     医学的な助言ではありません。めまいの原因はさまざまで、急を要するものも
+     含まれます。突然の難聴・物が二重に見える・手足の脱力・ろれつが回らない、
+     などを伴う場合は、日記ではなくすぐに受診してください。</p>
+
+  <footer>
+    <p><a href="index.ja.html">めまい日記（DizzyLog）</a> — <a href="privacy.ja.html">プライバシーポリシー</a></p>
+  </footer>
+</div>
+</body>
+</html>
