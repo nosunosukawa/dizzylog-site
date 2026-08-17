@@ -11,7 +11,7 @@
   :root{
     color-scheme:light dark;
     --bg:#F4F7F9; --surface:#FFFFFF; --grid:#DEE8EF; --border:#C7D7E1;
-    --ink:#14232E; --ink-soft:#4E6B7C; --ink-faint:#8AA2B0;
+    --ink:#14232E; --ink-soft:#4E6B7C; --ink-faint:#6E8896;
     --accent:#1F4E79; --accent-soft:#E4EDF6;
     --warning:#9A6520;
   }
@@ -46,9 +46,12 @@
 
   .topbar{background:var(--surface);border-bottom:1px solid var(--grid)}
   .topbar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;
-    gap:4px 20px;padding-top:13px;padding-bottom:13px}
-  .brand{font-weight:800;font-size:15.5px}
-  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px}
+    gap:0 20px;padding-top:0;padding-bottom:0}
+  .brand{font-weight:800;font-size:15.5px;padding:13px 0}
+  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:0 18px;font-size:15px}
+  /* 単独の導線は 44px 相当のタップ領域を確保する（帯の高さは変えていない） */
+  .topnav a{display:inline-block;padding:13px 0}
+  .topnav > span{padding:0}
   .topnav .label{color:var(--ink-soft);font-weight:400}
 
   header.page{padding:56px 0 8px}
@@ -62,9 +65,11 @@
   .flag{border-left:4px solid var(--warning);padding-left:18px}
   .flag h2{margin-top:0}
 
-  footer{border-top:1px solid var(--grid);margin-top:52px;padding:30px 0 66px;
+  footer{border-top:1px solid var(--grid);margin-top:52px;padding:21px 0 57px;
     font-size:15px;color:var(--ink-soft)}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:6px 16px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:0 16px;align-items:baseline}
+  footer .wrap > span{padding:9px 0}
+  footer a{display:inline-block;padding:9px 0}
 </style>
 <link rel="canonical" href="https://nosunosukawa.github.io/dizzylog-site/privacy.ja.html">
 <link rel="alternate" hreflang="en" href="https://nosunosukawa.github.io/dizzylog-site/privacy.html">
