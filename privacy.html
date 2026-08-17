@@ -6,39 +6,67 @@
 <title>DizzyLog — Privacy Policy</title>
 <meta name="description" content="DizzyLog collects nothing. Your records stay on your device. The only outbound request is a rounded location used to look up air pressure.">
 <style>
-  /* index.html と同じトークン(アプリ本体の src/theme/colors.ts 由来) */
+  /* index.html と同じトークン・同じ組み方（アプリ本体の src/theme/colors.ts 由来）。
+     本文は法的な文面なので一字も変えていない。変えたのは見た目だけ。 */
   :root{
-    --bg:#F4F7F9; --card:#FFFFFF; --ink:#14232E; --ink-soft:#4E6B7C;
-    --accent:#1F4E79; --calm:#4FA3A3; --warn:#9A6520; --line:#C7D7E1;
+    color-scheme:light dark;
+    --bg:#F4F7F9; --surface:#FFFFFF; --grid:#DEE8EF; --border:#C7D7E1;
+    --ink:#14232E; --ink-soft:#4E6B7C; --ink-faint:#8AA2B0;
+    --accent:#1F4E79; --accent-soft:#E4EDF6;
+    --warning:#9A6520;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0A141C; --card:#10202B; --ink:#E8F0F5; --ink-soft:#9DB4C2;
-      --accent:#8CBBE6; --calm:#4FADAD; --warn:#D9A441; --line:#26465C;
+      --bg:#0A141C; --surface:#10202B; --grid:#1C3344; --border:#26465C;
+      --ink:#E8F0F5; --ink-soft:#9DB4C2; --ink-faint:#63808F;
+      --accent:#8CBBE6; --accent-soft:#13293D;
+      --warning:#D9A441;
     }
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;padding:24px 20px 64px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:680px;margin:0 auto}
-  header{margin:20px 0 30px}
-  h1{font-size:30px;line-height:1.15;letter-spacing:-.6px;font-weight:800}
-  .lead{margin-top:14px;font-size:18px;line-height:1.5;font-weight:600}
-  .date{margin-top:10px;font-size:13px;color:var(--ink-soft)}
-  .lang{float:right;font-size:13.5px;font-weight:600}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:20px;display:flex;gap:14px;align-items:stretch}
-  .card + .card{margin-top:10px}
-  .pad{width:5px;border-radius:2.5px;flex:none;background:var(--calm)}
-  .pad.warn{background:var(--warn)}
-  .body{flex:1}
-  .card h2{font-size:16px;margin-bottom:6px;letter-spacing:-.2px}
-  .card p{font-size:15px}
-  .card p + p{margin-top:8px}
-  a{color:var(--accent);font-weight:600;text-decoration:none}
+    font-size:17.5px;line-height:1.8;-webkit-font-smoothing:antialiased;
+    overflow-wrap:break-word}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  }
+  .wrap{width:100%;max-width:730px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent);font-weight:700;text-decoration:none}
   a:hover{text-decoration:underline}
-  footer{margin-top:44px;text-align:center;color:var(--ink-soft);font-size:13px}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px;
+    text-decoration:none}
+  p{margin:0;max-width:33em}
+  p + p{margin-top:14px}
+
+  .skip{position:absolute;left:-9999px;top:0}
+  .skip:focus{position:static;display:inline-block;margin:10px 22px;padding:8px 12px;
+    background:var(--surface);border:1px solid var(--accent);border-radius:8px}
+
+  .topbar{background:var(--surface);border-bottom:1px solid var(--grid)}
+  .topbar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;
+    gap:4px 20px;padding-top:13px;padding-bottom:13px}
+  .brand{font-weight:800;font-size:15.5px;letter-spacing:.01em}
+  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px}
+  .topnav .label{color:var(--ink-soft);font-weight:400}
+
+  header.page{padding:56px 0 8px}
+  h1{margin:0;font-size:clamp(28px,5.6vw,38px);line-height:1.2;
+    letter-spacing:-.018em;font-weight:800;max-width:14em}
+  .lead{margin-top:20px;font-size:clamp(18px,2.4vw,20px);line-height:1.7;max-width:29em}
+  .date{margin-top:14px;font-size:15px;color:var(--ink-soft)}
+
+  section{padding:40px 0 0}
+  section + section{border-top:1px solid var(--grid);margin-top:40px}
+  h2{margin:0 0 12px;font-size:21px;line-height:1.45;font-weight:800;
+    letter-spacing:-.008em;max-width:20em}
+  .flag{border-left:4px solid var(--warning);padding-left:18px}
+  .flag h2{margin-top:0}
+
+  footer{border-top:1px solid var(--grid);margin-top:52px;padding:30px 0 66px;
+    font-size:15px;color:var(--ink-soft)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:6px 16px}
 </style>
 <link rel="canonical" href="https://nosunosukawa.github.io/dizzylog-site/privacy.html">
 <link rel="alternate" hreflang="en" href="https://nosunosukawa.github.io/dizzylog-site/privacy.html">
@@ -46,40 +74,46 @@
 <link rel="alternate" hreflang="x-default" href="https://nosunosukawa.github.io/dizzylog-site/privacy.html">
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <a class="lang" href="privacy.ja.html">日本語</a>
-    <h1>DizzyLog Privacy Policy</h1>
-    <p class="lead">DizzyLog collects nothing. Your records stay on your device. There is no
-       account, no analytics, no advertising and no server of ours to send anything to.</p>
-    <p class="date">Last updated: August 2026</p>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+<div class="topbar">
+  <div class="wrap">
+    <span class="brand">DizzyLog</span>
+    <nav class="topnav" aria-label="Site">
+      <span><span class="label">Support:</span> <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></span>
+      <a href="index.html">Home</a>
+      <a href="privacy.ja.html" hreflang="ja" lang="ja">日本語</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap">
+
+    <header class="page">
+      <h1>DizzyLog Privacy Policy</h1>
+      <p class="lead">DizzyLog collects nothing. Your records stay on your device. There is no
+         account, no analytics, no advertising and no server of ours to send anything to.</p>
+      <p class="date">Last updated: August 2026</p>
+    </header>
+
+    <section>
       <h2>What we collect</h2>
       <p>Nothing. DizzyLog has no analytics, no crash reporting, no advertising identifiers and
          no third-party SDKs that gather data. The developer never receives your records, your
          symptoms, your medication, your device identifiers or your location.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Where your data lives</h2>
       <p>Your attacks, durations, severities, triggers, symptoms, medication notes and reminders
          are stored in a database inside the app on your device. They are included in your own
          iPhone or iCloud device backup, which only you control. Deleting the app deletes this
          data. You can export everything yourself as CSV or as a PDF report at any time.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad warn"></div>
-    <div class="body">
+    <section class="flag">
       <h2>Location and air pressure</h2>
       <p>This is the one thing that leaves your device, so it is worth stating precisely.</p>
       <p>To attach the air pressure to an attack, DizzyLog needs to know roughly where you are.
@@ -91,71 +125,58 @@
       <p>The app itself never sends or stores your location anywhere else, and never sends your
          records with it. You can also choose a region by hand and never grant location access
          at all — recording attacks does not depend on it.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Health data</h2>
       <p>DizzyLog does not read from or write to Apple Health. What you record here stays inside
          this app.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Purchases</h2>
       <p>The one-time Pro unlock is processed by Apple through the App Store. DizzyLog only asks
          Apple whether this Apple ID owns the unlock. Payment details are handled by Apple and are
          never visible to the app or the developer.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Notifications</h2>
       <p>Reminders are scheduled locally on your device. DizzyLog has no push server and no push
          token — nothing about your reminders leaves your iPhone.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Children</h2>
       <p>DizzyLog is a general-audience journaling app rated 4+. It does not knowingly collect any
          information from anyone, including children.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad warn"></div>
-    <div class="body">
+    <section class="flag">
       <h2>Not a medical device</h2>
       <p>DizzyLog records what you tell it. It does not diagnose, does not predict attacks and
          does not give treatment advice. Talk to a doctor about your symptoms.</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="card">
-    <div class="pad"></div>
-    <div class="body">
+    <section>
       <h2>Changes &amp; contact</h2>
       <p>If this policy ever changes, the updated text ships with the app and appears on this
          page with a new date.</p>
       <p>Questions about this policy:
          <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
-    </div>
+    </section>
+
   </div>
+</main>
 
-  <footer>
-    © 2026 Nobutaka Kawasaki · <a href="index.html">Support</a> ·
-    <a href="privacy.ja.html">日本語</a>
-  </footer>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nobutaka Kawasaki</span>
+    <a href="index.html">Support</a>
+    <a href="mailto:nosunosukawa@gmail.com">Contact</a>
+    <a href="privacy.ja.html" hreflang="ja" lang="ja">日本語</a>
+  </div>
+</footer>
 
-</div>
 </body>
 </html>
