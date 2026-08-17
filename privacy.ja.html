@@ -6,70 +6,86 @@
 <title>めまい日記 — プライバシーポリシー</title>
 <meta name="description" content="めまい日記は何も収集しません。記録は端末内に保存されます。端末の外に出るのは、気圧を調べるための丸めた位置情報だけです。">
 <style>
-  /* index.ja.html と同じトークン・同じ組み方（アプリ本体の src/theme/colors.ts 由来）。
+  /* index.ja.html と同じトークン・同じ見開きの組み方。
      本文は法的な文面なので一字も変えていない。変えたのは見た目だけ。 */
   :root{
     color-scheme:light dark;
-    --bg:#F4F7F9; --surface:#FFFFFF; --grid:#DEE8EF; --border:#C7D7E1;
-    --ink:#14232E; --ink-soft:#4E6B7C; --ink-faint:#6E8896;
-    --accent:#1F4E79; --accent-soft:#E4EDF6;
-    --warning:#9A6520;
+    --paper:#F4F7F9; --margin:#E7EEF3; --rule:#BFD1DC;
+    --ink:#12212C; --ink-soft:#46626F; --accent:#1F4E79;
+    --spine:calc(max(0px, (100% - 1080px)/2) + 17rem);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0A141C; --surface:#10202B; --grid:#1C3344; --border:#26465C;
-      --ink:#E8F0F5; --ink-soft:#9DB4C2; --ink-faint:#63808F;
-      --accent:#8CBBE6; --accent-soft:#13293D;
-      --warning:#D9A441;
+      --paper:#0C1720; --margin:#14212C; --rule:#2A4A5F;
+      --ink:#E6EEF4; --ink-soft:#9CB4C2; --accent:#8CBBE6;
     }
   }
   *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);
+  html{-webkit-text-size-adjust:100%;background:var(--paper)}
+  body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
-    font-size:17.5px;line-height:1.85;-webkit-font-smoothing:antialiased;
+    font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased;
     overflow-wrap:break-word;line-break:strict}
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
   }
-  .wrap{width:100%;max-width:730px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent);font-weight:700;text-decoration:none}
-  a:hover{text-decoration:underline}
-  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px;
-    text-decoration:none}
-  p{margin:0;max-width:30em}
-  p + p{margin-top:15px}
+  @media (min-width:900px){
+    body{background-image:linear-gradient(to right,
+      var(--margin) 0 var(--spine),
+      var(--rule) var(--spine) calc(var(--spine) + 1px),
+      var(--paper) calc(var(--spine) + 1px) 100%)}
+  }
+  h1,h2{font-family:"Toppan Bunkyu Midashi Gothic","Hiragino Sans W6","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:600}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  a:hover{text-decoration-thickness:2px}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;text-decoration:none}
+  strong{font-weight:600}
+  p{margin:0;max-width:28em}
+  p + p{margin-top:12px}
 
   .skip{position:absolute;left:-9999px;top:0}
-  .skip:focus{position:static;display:inline-block;margin:10px 22px;padding:8px 12px;
-    background:var(--surface);border:1px solid var(--accent);border-radius:8px}
+  .skip:focus{position:static;display:inline-block;margin:10px 20px;padding:10px 14px;
+    background:var(--paper);border:2px solid var(--accent)}
 
-  .topbar{background:var(--surface);border-bottom:1px solid var(--grid)}
-  .topbar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;
-    gap:0 20px;padding-top:0;padding-bottom:0}
-  .brand{font-weight:800;font-size:15.5px;padding:13px 0}
-  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:0 18px;font-size:15px}
-  /* 単独の導線は 44px 相当のタップ領域を確保する（帯の高さは変えていない） */
-  .topnav a{display:inline-block;padding:13px 0}
-  .topnav > span{padding:0}
-  .topnav .label{color:var(--ink-soft);font-weight:400}
+  .topbar{background:var(--paper);border-bottom:1px solid var(--rule)}
+  .topbar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 18px}
+  .brand{font-weight:700;font-size:15px;display:inline-block;padding:12px 0}
+  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:0 16px;font-size:15px}
+  .topbar a,footer a{display:inline-block;padding:12px 0;text-decoration:none}
+  .topbar a:hover,footer a:hover{text-decoration:underline}
 
-  header.page{padding:56px 0 8px}
-  h1{margin:0;font-size:clamp(26px,5.2vw,35px);line-height:1.35;font-weight:800;max-width:16em}
-  .lead{margin-top:20px;font-size:clamp(17.5px,2.4vw,19px);line-height:1.85;max-width:27em}
-  .date{margin-top:14px;font-size:15px;color:var(--ink-soft)}
+  header.page{padding:38px 0 8px}
+  h1{margin:0;font-size:clamp(22px,5.4vw,27px);line-height:1.45;max-width:16em}
+  .lead{margin-top:14px;font-size:17px;line-height:1.9;max-width:26em;color:var(--ink-soft)}
+  .date{margin-top:12px;font-size:15px;color:var(--ink-soft)}
 
-  section{padding:40px 0 0}
-  section + section{border-top:1px solid var(--grid);margin-top:40px}
-  h2{margin:0 0 12px;font-size:20px;line-height:1.6;font-weight:800;max-width:22em}
-  .flag{border-left:4px solid var(--warning);padding-left:18px}
-  .flag h2{margin-top:0}
+  /* 節。綴じ目を横切る24pxの目盛で始まる。全幅の区切り線は引かない */
+  section{position:relative;padding:30px 0 0}
+  section::before{content:"";position:absolute;top:8px;left:-12px;width:24px;height:2px;
+    background:var(--accent)}
+  h2{margin:0 0 8px;font-size:19px;line-height:1.55;max-width:20em}
+  .flag h2{color:var(--ink)}
+  header.page,section{border-left:1px solid var(--rule);padding-left:18px;margin-left:3px}
+  header.page{border-left:0;padding-left:0;margin-left:0}
+  .flag{border-left-width:4px;border-left-color:var(--accent)}
 
-  footer{border-top:1px solid var(--grid);margin-top:52px;padding:21px 0 57px;
+  footer{border-top:1px solid var(--rule);margin-top:44px;padding:6px 0 40px;
     font-size:15px;color:var(--ink-soft)}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:0 16px;align-items:baseline}
-  footer .wrap > span{padding:9px 0}
-  footer a{display:inline-block;padding:9px 0}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:0 16px}
+  footer span{padding:12px 0;display:inline-block}
+
+  @media (min-width:900px){
+    .wrap{padding:0}
+    header.page,section{border-left:0;padding-left:0;margin-left:0;
+      display:grid;grid-template-columns:17rem minmax(0,29em) 1fr}
+    header.page > *,section > *{grid-column:2;padding-left:30px}
+    section::before{left:calc(17rem - 12px)}
+    /* 強調したい節は目盛を太くする（左罫は綴じ目と紛れるので desktop では使わない） */
+    .flag::before{height:5px;width:30px;left:calc(17rem - 15px)}
+    .topbar .wrap,footer .wrap{padding:0 20px}
+  }
 </style>
 <link rel="canonical" href="https://nosunosukawa.github.io/dizzylog-site/privacy.ja.html">
 <link rel="alternate" hreflang="en" href="https://nosunosukawa.github.io/dizzylog-site/privacy.html">
@@ -82,10 +98,10 @@
 
 <div class="topbar">
   <div class="wrap">
-    <span class="brand">めまい日記</span>
+    <a class="brand" href="index.ja.html">めまい日記</a>
     <nav class="topnav" aria-label="サイト">
-      <span><span class="label">お問い合わせ:</span> <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></span>
-      <a href="index.ja.html">ホーム</a>
+      <a href="index.ja.html">トップ</a>
+      <a href="support.ja.html">サポート</a>
       <a href="privacy.html" hreflang="en" lang="en">English</a>
     </nav>
   </div>
@@ -154,7 +170,8 @@
 <footer>
   <div class="wrap">
     <span>© 2026 川崎 信隆</span>
-    <a href="index.ja.html">サポート</a>
+    <a href="index.ja.html">トップ</a>
+    <a href="support.ja.html">サポート</a>
     <a href="mailto:nosunosukawa@gmail.com">お問い合わせ</a>
     <a href="privacy.html" hreflang="en" lang="en">English</a>
   </div>

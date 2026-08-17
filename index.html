@@ -3,156 +3,155 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DizzyLog — Vertigo Diary App: Log Attacks, Export a Doctor-Ready PDF</title>
+<title>DizzyLog — Vertigo Diary: Log Attacks, Export a Doctor PDF</title>
 <meta name="description" content="Support for DizzyLog, the vertigo and dizziness diary for Ménière's, BPPV and vestibular migraine. Three questions during the attack, one PDF page for the appointment. No subscription.">
 <style>
-  /* 「静かな診察室のノート」。読む人はめまい・メニエール病・BPPVの当事者で、
-     発作の直後か受診の前夜に、気分が悪い状態で開く可能性が高い。
-     だから: 動くものを置かない・彩度で殴らない・本文を大きく・行を短く・余白を広く。
-     色は アプリ本体の src/theme/colors.ts と同じ値（画面と地続きに見えることが信用になる）。
-     アプリの意匠に合わせて影は使わない（紙は浮かない）。境界は毛筋。 */
+  /* Wave 2 "notebook spread". Left page = the attack (the recording screen),
+     right page = the appointment (the sheet you hand over), split by one gutter rule.
+     Readers open this right after an attack or the night before an appointment,
+     often while unwell. So: nothing moves, no repeating pattern, no saturated colour,
+     pictures carry the argument and the prose is short.
+     The only thing allowed to tilt is a mark that means severity. */
   :root{
     color-scheme:light dark;
-    --bg:#F4F7F9; --surface:#FFFFFF; --surface-alt:#EDF2F6;
-    --grid:#DEE8EF; --border:#C7D7E1;
-    --ink:#14232E; --ink-soft:#4E6B7C; --ink-faint:#6E8896;
-    --accent:#1F4E79; --accent-soft:#E4EDF6;
-    --danger:#A63A3A; --danger-soft:#F7E7E5;
-    --warning:#9A6520; --warning-soft:#FBEEDC;
-    --sev1:#3E8FBF; --sev2:#4FA3A3; --sev3:#D19A3E; --sev4:#CC6B42; --sev5:#A8353A;
+    --paper:#F4F7F9; --margin:#E7EEF3; --rule:#BFD1DC;
+    --ink:#12212C; --ink-soft:#46626F; --accent:#1F4E79;
+    --data:#6E8A9B; --alarm:#A63A3A; --alarm-bg:#F7E7E5;
+    --spine:calc(max(0px, (100% - 1080px)/2) + 17rem);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0A141C; --surface:#10202B; --surface-alt:#162A38;
-      --grid:#1C3344; --border:#26465C;
-      --ink:#E8F0F5; --ink-soft:#9DB4C2; --ink-faint:#63808F;
-      --accent:#8CBBE6; --accent-soft:#13293D;
-      --danger:#E38A8C; --danger-soft:#2E1A1C;
-      --warning:#D9A441; --warning-soft:#2C2213;
-      --sev1:#4E9AC9; --sev2:#4FADAD; --sev3:#D9A551; --sev4:#D6764A; --sev5:#C0424A;
+      --paper:#0C1720; --margin:#14212C; --rule:#2A4A5F;
+      --ink:#E6EEF4; --ink-soft:#9CB4C2; --accent:#8CBBE6;
+      --data:#7E9BAC; --alarm:#E38A8C; --alarm-bg:#2E1A1C;
     }
   }
 
   *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:17.5px;line-height:1.8;-webkit-font-smoothing:antialiased;
+  html{-webkit-text-size-adjust:100%;background:var(--paper)}
+  body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+    font-size:17.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
     overflow-wrap:break-word}
-  /* 動くものを置かない。それでも環境に合わせて明示的に黙らせる */
+  /* No animation or transition is declared anywhere. Silenced explicitly as well. */
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
   }
-  .wrap{width:100%;max-width:730px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent);font-weight:700;text-decoration:none}
-  a:hover{text-decoration:underline}
-  a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;
-    border-radius:3px;text-decoration:none}
-  strong,b{font-weight:700}
-  p{margin:0;max-width:33em}
-  p + p{margin-top:14px}
+  /* The spread: left page (--margin) / gutter (--rule) / right page (--paper). No texture. */
+  @media (min-width:900px){
+    body{background-image:linear-gradient(to right,
+      var(--margin) 0 var(--spine),
+      var(--rule) var(--spine) calc(var(--spine) + 1px),
+      var(--paper) calc(var(--spine) + 1px) 100%)}
+  }
+
+  /* A sturdy text serif, not a display serif: quiet authority at modest sizes. */
+  h1,h2,.docttl,.cmp th{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-weight:600}
+  .num,.ax{font-family:"SF Mono",Menlo,ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+  .sheet{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  a:hover{text-decoration-thickness:2px}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;text-decoration:none}
+  strong{font-weight:600}
+  p{margin:0;max-width:34em}
+  p + p{margin-top:12px}
+  figure{margin:0}
+  figcaption{margin-top:10px;font-size:15px;line-height:1.65;color:var(--ink-soft);max-width:30em}
 
   .skip{position:absolute;left:-9999px;top:0}
-  .skip:focus{position:static;display:inline-block;margin:10px 22px;padding:8px 12px;
-    background:var(--surface);border:1px solid var(--accent);border-radius:8px}
+  .skip:focus{position:static;display:inline-block;margin:10px 20px;padding:10px 14px;
+    background:var(--paper);border:2px solid var(--accent)}
 
-  /* 上端の帯。App Store の必須URL（サポート窓口とプライバシー）は
-     スクロールせずに見つかる位置に置く */
-  .topbar{background:var(--surface);border-bottom:1px solid var(--grid)}
-  .topbar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;
-    gap:0 20px;padding-top:0;padding-bottom:0}
-  .brand{font-weight:800;font-size:15.5px;letter-spacing:.01em;padding:13px 0}
-  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:0 18px;font-size:15px}
-  /* 単独の導線は 44px 相当のタップ領域を確保する（帯の高さは変えていない） */
-  .topnav a{display:inline-block;padding:13px 0}
-  .topnav > span{padding:0}
-  .topnav .label{color:var(--ink-soft);font-weight:400}
+  /* App Store required URLs: support and privacy reachable without scrolling. */
+  .topbar{background:var(--paper);border-bottom:1px solid var(--rule)}
+  .topbar .sheet{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 18px}
+  .brand{font-weight:700;font-size:15px;display:inline-block;padding:12px 0}
+  .topnav{margin-left:auto;display:flex;flex-wrap:wrap;gap:0 16px;font-size:15px}
+  .topbar a,footer a{display:inline-block;padding:12px 0;text-decoration:none}
+  .topbar a:hover,footer a:hover{text-decoration:underline}
 
-  .hero{padding:60px 0 4px}
-  .horizon{display:block;margin-bottom:26px}
-  h1{margin:0;font-size:clamp(31px,7.4vw,45px);line-height:1.16;
-    letter-spacing:-.022em;font-weight:800;max-width:15em}
-  .lead{margin-top:22px;font-size:clamp(18px,2.5vw,20px);line-height:1.7;
-    max-width:29em;color:var(--ink)}
+  h1{margin:0;font-size:clamp(26px,6.2vw,32px);line-height:1.3;max-width:15em}
+  h2{margin:16px 0 6px;font-size:clamp(21px,3.8vw,24px);line-height:1.4;max-width:17em}
+  .lead{margin-top:14px;font-size:17.5px;max-width:29em}
+  .kicker{font-size:13px;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 10px;max-width:none}
 
-  .signs{display:grid;gap:14px;margin-top:38px;grid-template-columns:1fr}
-  @media (min-width:620px){.signs{grid-template-columns:1fr 1fr}}
-  .sign{background:var(--surface);border:1px solid var(--border);border-radius:16px;
-    padding:20px 22px 22px}
-  .sign .num{font-size:42px;font-weight:800;line-height:1;color:var(--accent);
+  /* Sections start with a 24px tick across the gutter. No full-width dividers. */
+  .row{position:relative;padding:34px 0}
+  .row::before{content:"";position:absolute;top:0;left:-12px;width:24px;height:2px;
+    background:var(--accent)}
+  .hero{padding:38px 0 34px}
+  .hero::before{display:none}
+  .row,.hero{border-left:1px solid var(--rule);padding-left:18px;margin-left:3px}
+
+  .shot img{display:block;width:100%;max-width:250px;height:auto;
+    border:1px solid var(--rule);background:var(--paper)}
+  .fig{margin-bottom:2px}
+  .fig svg{display:block;width:100%;height:auto;max-width:560px}
+  .shot{margin-top:22px}
+
+  /* The doctor report, set as a sheet in HTML rather than a phone screenshot:
+     legible at 390px and it weighs nothing. */
+  .doc{margin-top:24px}
+  .docsheet{border:1px solid var(--accent);background:var(--paper);padding:16px 16px 14px;
+    max-width:34em}
+  .docttl{font-size:16.5px;margin:0}
+  .docttl span{font-family:inherit;font-weight:400;font-size:14px;color:var(--ink-soft);
+    margin-left:10px;white-space:nowrap}
+  .docsum{display:flex;flex-wrap:wrap;gap:6px 24px;margin:14px 0 12px}
+  .docsum div{min-width:0}
+  .docsum b{display:block;font-size:25px;line-height:1.15;font-weight:600}
+  .docsum span{display:block;font-size:12.5px;line-height:1.5;color:var(--ink-soft)}
+  table.docrows{width:100%;border-collapse:collapse;font-size:14.5px;
     font-variant-numeric:tabular-nums}
-  .sign .num span{font-size:16px;font-weight:700;color:var(--ink-soft);margin-left:9px;
-    letter-spacing:.01em}
-  .sign p{margin-top:12px;font-size:16px;line-height:1.7;max-width:none}
+  .docrows th{text-align:left;font-weight:400;font-size:12px;color:var(--ink-soft);
+    border-bottom:1px solid var(--rule);padding:0 6px 5px 0}
+  .docrows td{padding:7px 6px 7px 0;border-bottom:1px solid var(--rule)}
+  .docrows th:last-child,.docrows td:last-child{text-align:right;padding-right:0}
+  .docmore{font-size:13px;color:var(--ink-soft);margin-top:8px;max-width:none}
+  .docfoot{font-size:12.5px;line-height:1.6;color:var(--ink-soft);margin-top:12px;
+    padding-top:10px;border-top:1px solid var(--rule);max-width:none}
 
-  section{padding:58px 0;border-top:1px solid var(--grid)}
-  .kicker{font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--ink-soft);margin:0 0 12px;max-width:none}
-  h2{margin:0 0 20px;font-size:clamp(23px,3.6vw,29px);line-height:1.35;
-    font-weight:800;letter-spacing:-.012em;max-width:19em}
-  h3{margin:34px 0 8px;font-size:19px;font-weight:700;line-height:1.5}
-  h3:first-child{margin-top:0}
+  table.cmp{width:100%;border-collapse:collapse;font-size:15.5px;max-width:34em}
+  .cmp th{text-align:left;font-size:14px;padding:0 10px 6px 0;
+    border-bottom:2px solid var(--accent);width:50%}
+  .cmp td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top;
+    line-height:1.5}
+  .cmp th:last-child,.cmp td:last-child{padding-right:0}
 
-  .split{display:grid;gap:34px;align-items:start}
-  @media (min-width:780px){
-    .split{grid-template-columns:minmax(0,1fr) 296px;gap:48px}
-    .split .shot{grid-column:2}
+  .alarm{border-left:5px solid var(--alarm);background:var(--alarm-bg);padding:18px 20px}
+  .alarm p,.alarm ul{max-width:34em}
+  .alarm ul{margin:12px 0 0;padding-left:1.15em}
+  .alarm li{margin-top:8px}
+  .alarm li::marker{color:var(--alarm)}
+
+  .help{border-top:1px solid var(--rule);padding:26px 0 8px}
+  .mail{font-size:18px;font-weight:600;word-break:break-all}
+  footer{border-top:1px solid var(--rule);padding:6px 0 40px;font-size:15px;color:var(--ink-soft)}
+  footer .sheet{display:flex;flex-wrap:wrap;gap:0 16px}
+  footer span{padding:12px 0;display:inline-block}
+
+  /* Wide screens: left page holds the eyebrow, the note and the small device shot;
+     right page holds the heading and the large figure. */
+  @media (min-width:900px){
+    .sheet{padding:0}
+    .row,.hero{border-left:0;padding-left:0;margin-left:0;
+      display:grid;grid-template-columns:17rem minmax(0,32em) 1fr}
+    .row > *,.hero > *{grid-column:2;padding-left:30px}
+    .row > .kicker,.row > .railnote,.hero > .shot{
+      grid-column:1;padding-left:0;padding-right:26px;text-align:right}
+    .row > .kicker{grid-row:1}
+    .row > .railnote{grid-row:2}
+    .hero > .shot{grid-row:1/span 3;margin-top:6px}
+    .hero > .shot img{margin-left:auto}
+    .hero > .shot figcaption{margin-left:auto}
+    .row::before{left:calc(17rem - 12px)}
+    .railnote{font-size:14.5px;line-height:1.6;color:var(--ink-soft);max-width:none}
+    .help .sheet,footer .sheet,.topbar .sheet{padding:0 20px}
   }
-  .shot{margin:0}
-  .shot img{display:block;width:100%;max-width:296px;height:auto;
-    border:1px solid var(--border);border-radius:22px;background:var(--surface)}
-  .shot figcaption{margin-top:11px;font-size:14.5px;line-height:1.65;
-    color:var(--ink-soft);max-width:296px}
-
-  ul{margin:16px 0 0;padding-left:1.2em;max-width:33em}
-  li{margin-top:9px}
-  li::marker{color:var(--ink-faint)}
-  .plain{list-style:none;padding-left:0}
-  .plain li{padding-left:0}
-
-  .quote{margin:18px 0 0;padding:2px 0 2px 18px;border-left:3px solid var(--border);
-    color:var(--ink-soft);font-size:16px;max-width:31em}
-
-  .panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;
-    padding:22px 24px}
-  .panel + .panel{margin-top:14px}
-  .panel h3{margin-top:0}
-  .panels{display:grid;gap:14px;margin-top:8px}
-  @media (min-width:700px){.panels{grid-template-columns:1fr 1fr}.panels .panel+.panel{margin-top:0}}
-  .panel ul{margin-top:12px}
-  .panel p,.panel ul{max-width:none}
-  .tag{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
-
-  .note{border-left:4px solid var(--warning);padding-left:18px;margin-top:22px}
-  .note p{max-width:31em}
-
-  .alert{background:var(--danger-soft);border:1px solid var(--danger);
-    border-left-width:5px;border-radius:14px;padding:22px 24px}
-  .alert h2{margin-bottom:12px;font-size:21px;max-width:none}
-  .alert p,.alert ul{max-width:none}
-  .alert ul{margin-top:14px}
-
-  .support{background:var(--accent-soft);border:1px solid var(--accent);
-    border-radius:16px;padding:24px}
-  .support p{max-width:none}
-  .mail{font-size:19px;font-weight:700;word-break:break-all}
-
-  .faq{border-top:1px solid var(--grid);padding-top:22px;margin-top:22px}
-  .faq:first-of-type{border-top:none;padding-top:0;margin-top:0}
-  .faq h3{margin-top:0}
-
-  .muted{color:var(--ink-soft);font-size:15px}
-  .guide{background:var(--surface);border:1px solid var(--border);border-radius:16px;
-    padding:22px 24px}
-  .guide h3{margin:0 0 6px;font-size:18.5px}
-  .guide p{max-width:none}
-
-  footer{border-top:1px solid var(--grid);padding:21px 0 57px;
-    font-size:15px;color:var(--ink-soft)}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:0 16px;align-items:baseline}
-  footer .wrap > span{padding:9px 0}
-  footer a{display:inline-block;padding:9px 0}
+  @media (max-width:899px){
+    .railnote{font-size:15px;color:var(--ink-soft);margin-top:12px}
+  }
 </style>
 <meta property="og:title" content="DizzyLog — Vertigo diary, without the subscription">
 <meta property="og:description" content="Log a dizzy spell in 3 taps, right when it happens. Turn it into a doctor-ready PDF.">
@@ -168,10 +167,10 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="topbar">
-  <div class="wrap">
+  <div class="sheet">
     <span class="brand">DizzyLog</span>
     <nav class="topnav" aria-label="Site">
-      <span><span class="label">Support:</span> <a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></span>
+      <a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a>
       <a href="index.ja.html" hreflang="ja" lang="ja">日本語</a>
     </nav>
@@ -179,316 +178,190 @@
 </div>
 
 <main id="main">
+<div class="sheet">
 
-  <div class="wrap">
-    <div class="hero">
-      <!-- アプリの署名「傾いた水平線」。強さを数字でなく線の傾きで表す意匠をそのまま持ってきた -->
-      <svg class="horizon" width="140" height="28" viewBox="0 0 140 28" aria-hidden="true" focusable="false">
-        <g stroke-width="3" stroke-linecap="round" fill="none">
-          <line x1="3" y1="16" x2="22" y2="16" stroke="var(--sev1)"/>
-          <line x1="30" y1="18" x2="49" y2="13" stroke="var(--sev2)"/>
-          <line x1="57" y1="20" x2="76" y2="10" stroke="var(--sev3)"/>
-          <line x1="84" y1="22" x2="103" y2="8" stroke="var(--sev4)"/>
-          <line x1="111" y1="24" x2="130" y2="5" stroke="var(--sev5)"/>
+  <!-- The spread: left page = the screen during an attack, right page = the sheet you hand over -->
+  <section class="hero">
+    <h1>Write it down while it is still happening.</h1>
+    <p class="lead">Log a spinning, floating or lightheaded attack in three taps. One PDF for
+      the appointment. For Ménière's and BPPV.</p>
+
+    <figure class="shot">
+      <img src="assets/record-en.png" width="640" height="1387" loading="eager" decoding="async"
+           alt="The New episode screen: what kind of dizziness, how long it lasted and how bad it was, each a row of large buttons, with optional details below.">
+      <figcaption>During an attack, this is all.</figcaption>
+    </figure>
+
+    <figure class="doc">
+      <div class="docsheet">
+        <p class="docttl">Vertigo record report <span>Jul 9 – Aug 7</span></p>
+        <div class="docsum">
+          <div><b class="num">9</b><span>episodes</span></div>
+          <div><b class="num">9</b><span>days</span></div>
+          <div><b class="num">2.9</b><span>avg severity</span></div>
+        </div>
+        <table class="docrows">
+          <thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Sev.</th></tr></thead>
+          <tbody>
+            <tr><td>Aug 7, 7:15</td><td>Spinning</td><td>3</td></tr>
+            <tr><td>Aug 5, 14:15</td><td>Floating</td><td>2</td></tr>
+            <tr><td>Aug 2, 9:15</td><td>Spinning</td><td>4</td></tr>
+          </tbody>
+        </table>
+        <p class="docmore">6 more</p>
+        <p class="docfoot">Recorded by the patient. No diagnosis.</p>
+      </div>
+      <figcaption>This is what you hand over.</figcaption>
+    </figure>
+  </section>
+
+  <section class="row">
+    <p class="kicker">During the attack</p>
+    <figure class="fig">
+      <svg viewBox="0 0 560 108" width="560" height="108" role="img"
+           aria-label="The three questions the recording screen asks. What kind of dizziness: four choices. How long it lasted: four choices. How bad it was: five steps shown as a line that tilts further as it gets worse, from level at 1 to 45 degrees at 5.">
+        <g fill="none" stroke="var(--data)" stroke-width="1.5">
+          <rect x="1" y="30" width="36" height="24"/><rect x="44" y="30" width="36" height="24"/>
+          <rect x="87" y="30" width="36" height="24"/><rect x="130" y="30" width="36" height="24"/>
+          <rect x="196" y="30" width="36" height="24"/><rect x="239" y="30" width="36" height="24"/>
+          <rect x="282" y="30" width="36" height="24"/><rect x="325" y="30" width="36" height="24"/>
+          <rect x="391" y="30" width="30" height="30"/><rect x="425" y="30" width="30" height="30"/>
+          <rect x="459" y="30" width="30" height="30"/><rect x="493" y="30" width="30" height="30"/>
+          <rect x="527" y="30" width="30" height="30"/>
+        </g>
+        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
+          <line x1="397" y1="45" x2="415" y2="45"/>
+          <line x1="431" y1="47.3" x2="449" y2="42.7"/>
+          <line x1="465" y1="49.1" x2="483" y2="40.9"/>
+          <line x1="499" y1="50.3" x2="517" y2="39.7"/>
+          <line x1="533" y1="51.4" x2="551" y2="38.6"/>
+        </g>
+        <g fill="var(--ink-soft)" font-size="14">
+          <text x="0" y="14">What kind?</text>
+          <text x="195" y="14">How long?</text>
+          <text x="390" y="14">How bad?</text>
+        </g>
+        <g fill="var(--ink-soft)" font-size="11.5" text-anchor="middle" class="ax">
+          <text x="406" y="78">1</text><text x="440" y="78">2</text><text x="474" y="78">3</text>
+          <text x="508" y="78">4</text><text x="542" y="78">5</text>
         </g>
       </svg>
+    </figure>
+    <h2>Three questions</h2>
+    <p>One tap each. Nothing is typed.</p>
+  </section>
 
-      <h1>Write it down while it is still happening.</h1>
-      <p class="lead">DizzyLog is a plain diary for vertigo — Ménière's, BPPV, vestibular
-        migraine, or dizziness nobody has named yet. Three questions during the attack.
-        One PDF to hand over at the appointment.</p>
+  <section class="row">
+    <p class="kicker">Pressure and weather</p>
+    <figure class="fig">
+      <svg viewBox="0 0 560 234" width="560" height="234" role="img"
+           aria-label="A sample figure. The upper panel is a barometric pressure line in hPa; the lower panel is the run of attacks. Both share the same dates, Jul 28 to Aug 8, and the panels are separated by a rule. Attacks: Jul 29 at severity 2, Aug 2 at severity 4, Aug 5 at severity 2, Aug 7 at severity 3. None of the attack marks sits on a peak or a trough of the pressure line.">
+        <g class="ax" fill="var(--ink-soft)" font-size="12">
+          <text x="0" y="12">Pressure (hPa)</text>
+        </g>
+        <g>
+          <rect x="489" y="1" width="50" height="19" fill="none" stroke="var(--ink-soft)" stroke-width="1"/>
+          <text x="514" y="15" font-size="12" fill="var(--ink-soft)" text-anchor="middle">Sample</text>
+        </g>
+        <g stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 4">
+          <line x1="42" y1="40" x2="530" y2="40"/><line x1="42" y1="110" x2="530" y2="110"/>
+        </g>
+        <g class="ax" fill="var(--ink-soft)" font-size="11" text-anchor="end">
+          <text x="36" y="44">1013</text><text x="36" y="114">995</text>
+        </g>
+        <path d="M42,72 C70,60 100,52 130,52 C160,52 180,80 200,98 C230,80 270,66 300,62
+                 C325,60 345,63 360,66 C385,78 410,95 430,100 C460,95 500,78 530,70"
+              fill="none" stroke="var(--data)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="0" y1="140" x2="560" y2="140" stroke="var(--rule)" stroke-width="1"/>
+        <text x="0" y="160" class="ax" font-size="12" fill="var(--ink-soft)">Attacks</text>
+        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
+          <line x1="73.4" y1="181.4" x2="98.6" y2="174.6"/>
+          <line x1="253.5" y1="185.6" x2="274.5" y2="170.4"/>
+          <line x1="384.4" y1="181.4" x2="409.6" y2="174.6"/>
+          <line x1="474.5" y1="184.1" x2="497.5" y2="171.9"/>
+        </g>
+        <g class="ax" fill="var(--ink-soft)" font-size="11" text-anchor="middle">
+          <text x="86" y="203">2</text><text x="264" y="203">4</text>
+          <text x="397" y="203">2</text><text x="486" y="203">3</text>
+          <text x="86" y="224">Jul 29</text><text x="264" y="224">Aug 2</text>
+          <text x="397" y="224">Aug 5</text><text x="486" y="224">Aug 7</text>
+        </g>
+      </svg>
+    </figure>
+    <h2>Two records, one timeline</h2>
+    <p>These are tallies of your own entries, not causes or predictions.</p>
+    <figure class="shot railnote">
+      <img src="assets/insights-en.png" width="640" height="1387" loading="lazy" decoding="async"
+           alt="The Insights screen: episodes by duration, trigger patterns as percentages, average sleep on episode days and average pressure at episodes.">
+      <figcaption>Also tallies of your entries.</figcaption>
+    </figure>
+  </section>
 
-      <div class="signs">
-        <div class="sign">
-          <div class="num">3 <span>taps, mid-attack</span></div>
-          <p>What kind of dizziness. How long it lasted. How bad it was. Then Save.
-             Everything else is optional.</p>
-        </div>
-        <div class="sign">
-          <div class="num">1 <span>PDF for the visit</span></div>
-          <p>How often, how long, how severe, what you noted as triggers, what you took —
-             one document, arranged for someone who has about a minute to read it.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <section class="row">
+    <p class="kicker">Free and Pro</p>
+    <table class="cmp">
+      <thead><tr><th scope="col">Free, forever</th><th scope="col">Pro, one time</th></tr></thead>
+      <tbody>
+        <tr><td>Recording and timer</td><td>Doctor PDF</td></tr>
+        <tr><td>History and calendar</td><td>CSV export</td></tr>
+      </tbody>
+    </table>
+    <h2>Recording is free</h2>
+    <p>No ads, no trial clock, no subscription.</p>
+  </section>
 
-  <section>
-    <div class="wrap">
-      <p class="kicker">During the attack</p>
-      <h2>Built to be usable when you cannot look at a screen for long</h2>
-      <div class="split">
-        <div>
-          <p>The recording screen asks three things, and each one is a single tap on a big
-             target. Nothing is typed. Nothing is scrolled through.</p>
-          <ul>
-            <li><strong>What kind of dizziness?</strong> Spinning (vertigo), floating /
-                rocking, lightheaded, or other.</li>
-            <li><strong>How long did it last?</strong> Under a minute, 1–20 minutes,
-                20 minutes to half a day, or more than half a day.</li>
-            <li><strong>How bad was it?</strong> Five steps, shown as a line that tilts
-                further as it gets worse — because what people actually say is that the
-                world tipped over.</li>
-          </ul>
-          <p>If you can, there is a timer: tap <strong>“Having an episode now”</strong> when it
-             starts and <strong>“It's over — log it”</strong> when it stops. The duration is then
-             measured rather than estimated afterwards, and that question is already answered
-             when the form opens. The timer survives the app being closed, so you can put the
-             phone down.</p>
+  <section class="row">
+    <p class="kicker">Your data</p>
+    <figure class="fig">
+      <svg viewBox="0 0 560 130" width="560" height="130" role="img"
+           aria-label="Records live in a database inside the app on the phone. The only thing that leaves the device is a rounded area, sent to look up the pressure forecast; the records themselves never leave.">
+        <rect x="1" y="12" width="150" height="106" fill="none" stroke="var(--ink-soft)"
+              stroke-width="1.5" rx="12"/>
+        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
+          <line x1="24" y1="46" x2="46" y2="46"/>
+          <line x1="62" y1="48.3" x2="84" y2="43.7"/>
+          <line x1="100" y1="50.1" x2="122" y2="41.9"/>
+          <line x1="24" y1="80.1" x2="46" y2="71.9"/>
+          <line x1="62" y1="79" x2="84" y2="73"/>
+        </g>
+        <text x="76" y="108" font-size="12.5" fill="var(--ink-soft)" text-anchor="middle">Records</text>
+        <line x1="164" y1="65" x2="246" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
+        <polygon points="256,65 244,60 244,70" fill="var(--ink-soft)"/>
+        <rect x="268" y="50" width="160" height="30" fill="none" stroke="var(--ink-soft)"
+              stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="348" y="70" font-size="12.5" fill="var(--ink-soft)" text-anchor="middle">A rounded area</text>
+      </svg>
+    </figure>
+    <h2>On the device only</h2>
+    <p>No server, so no account.</p>
+  </section>
 
-          <h3>The optional part, for later</h3>
-          <p>Under “Details (optional)” you can add possible triggers — head movement or
-             rolling over, standing up quickly, poor sleep, stress, salty food, caffeine,
-             alcohol, weather, menstrual cycle — and symptoms that came with it, such as
-             tinnitus, muffled hearing, ear fullness, nausea, vomiting or headache. Plus what
-             you took and a free note. None of it is required to save.</p>
-          <p>Air pressure is attached by itself: the iPhone's own barometer is read at the
-             moment you save, so the number stored with the episode is a measurement, not a
-             forecast. If the sensor cannot be read, the field is simply left empty and never
-             filled in later.</p>
-        </div>
-        <figure class="shot">
-          <img src="assets/record-en.png" width="640" height="1387" loading="lazy" decoding="async"
-               alt="The New episode screen: what kind of dizziness, how long it lasted, how bad it was, with optional triggers and other symptoms below.">
-          <figcaption>Three questions, then Save. The severity row uses a tilting line rather
-            than a number.</figcaption>
-        </figure>
-      </div>
+  <section class="row">
+    <div class="alarm">
+      <p>A journal, not a medical device. It does not diagnose or predict.</p>
+      <ul>
+        <li>New, sudden or severe dizziness needs a doctor, not an app.</li>
+        <li>Dizziness with chest pain, weakness on one side, trouble speaking, double vision or
+            sudden hearing loss is an emergency — seek care immediately.</li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <p class="kicker">At the appointment</p>
-      <h2>The reason most people start a diary: being able to answer the doctor's questions</h2>
-      <div class="split">
-        <div>
-          <p>For dizziness, what a clinician usually needs is narrow and specific: what kind
-             of episode, how long it lasted, and how often it happens. That is exactly what the
-             report prints.</p>
-          <p>Open <strong>Doctor report (PDF)</strong>, choose <strong>Last 30 days</strong>,
-             <strong>Last 90 days</strong> or <strong>All time</strong>, and share the file —
-             print it, mail it to yourself, or hand your phone over in the room.</p>
-          <h3>What is on the sheet</h3>
-          <ul>
-            <li>Summary: number of episodes and days with episodes — plus your average sleep
-                and stress, if you also keep the daily log.</li>
-            <li>Breakdowns: by type, by duration, by severity, and tallies of the triggers and
-                accompanying symptoms you ticked.</li>
-            <li>The episode list itself — date and time, type, duration, severity, air
-                pressure, the triggers, symptoms and medication for that episode, and your note.</li>
-          </ul>
-          <p>It is text and one table. No charts, nothing dressed up. The report also carries
-             its own footer, in plain words: it lists entries recorded by the patient, it
-             contains no diagnosis or medical assessment, and the duration bands are
-             self-reported.</p>
-          <h3>If your clinic wants the raw numbers</h3>
-          <p>There is also a CSV export of every episode — one row each, with the date, start
-             time, type, duration band, measured seconds, severity, pressure in hPa, triggers,
-             symptoms, medication and note. It is written as UTF-8 with a byte-order mark so
-             spreadsheets open it without mangling the text.</p>
-        </div>
-        <figure class="shot">
-          <img src="assets/report-en.png" width="640" height="1387" loading="lazy" decoding="async"
-               alt="The Doctor report screen showing a preview: 9 episodes, 9 days with episodes, average severity 2.9, and a dated list of episodes.">
-          <figcaption>The preview is built from your own entries, so you can see what the
-            doctor will see before you generate the file.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="kicker">Weather and barometric pressure</p>
-      <h2>What the pressure numbers are — and what they are deliberately not</h2>
-      <div class="split">
-        <div>
-          <p>DizzyLog keeps two different pressure numbers, and it is worth knowing which is
-             which.</p>
-          <ul>
-            <li><strong>Pressure at your episodes</strong> — measured by your iPhone's
-                barometer at the moment you logged, stored with that record.</li>
-            <li><strong>A 48-hour pressure forecast</strong> for your area, from Apple Weather,
-                so you can see what is coming. Pro can overlay the pressure at your own
-                episodes on the same chart.</li>
-          </ul>
-          <p>Both are shown as facts about the air, in the unit your region uses — hPa in most
-             of the world, inHg in the United States. What the app will never do is tell you
-             that pressure caused an attack, or that one is coming.</p>
-          <blockquote class="quote">“These are tallies of your own entries (correlations), not
-            causes or predictions.” — shown in the app, under the trigger patterns.</blockquote>
-          <blockquote class="quote">“This is a barometric pressure forecast. It does not tell
-            you how you will feel. Talk to a doctor about symptoms that concern you.” — shown
-            in the app, under the pressure chart.</blockquote>
-          <div class="note">
-            <p>Whether the weather moves your symptoms is a real question, and it is one for
-               you and your doctor. The app's job is to put your episodes and the air pressure
-               on the same timeline so the question can be asked with actual dates attached to
-               it, instead of an impression.</p>
-          </div>
-          <h3>You do not have to share your location</h3>
-          <p>On the pressure screen you can pick a region from a list by hand, or skip pressure
-             entirely — recording episodes does not depend on it, and if you decline the
-             permission the region list opens instead. If you do use your current location, the
-             coordinate is taken at the coarsest accuracy iOS offers and then rounded to a grid
-             of roughly 28 km before it is used at all.</p>
-        </div>
-        <figure class="shot">
-          <img src="assets/insights-en.png" width="640" height="1387" loading="lazy" decoding="async"
-               alt="The Insights screen: episodes by duration, trigger patterns as percentages, average sleep on episode days, and average pressure at episodes.">
-          <figcaption>Insights are tallies of what you entered. The line under them says so, in
-            the app, every time.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="kicker">Free and Pro</p>
-      <h2>Recording is free and unlimited. The purchase is for getting the record back out.</h2>
-      <p>A dizziness diary that locks up the recording is useless during an attack, so it
-         does not. There is no trial clock, no ad, and no subscription anywhere in this app.</p>
-      <div class="panels">
-        <div class="panel">
-          <span class="tag">Free, forever</span>
-          <h3>Everything you do while unwell</h3>
-          <ul>
-            <li>Unlimited episode recording, with the timer</li>
-            <li>Triggers, accompanying symptoms, medication, notes</li>
-            <li>Entering an episode you missed, on a past date</li>
-            <li>Full history, calendar heat map and day view</li>
-            <li>The daily log — sleep, stress, salt, water, caffeine, alcohol</li>
-            <li>Insights by month, type, duration and severity</li>
-            <li>The 48-hour pressure forecast for your area</li>
-            <li>One medication reminder</li>
-            <li>Light and dark appearance, in English or Japanese</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <span class="tag">DizzyLog Pro — one time</span>
-          <h3>Everything that leaves the app</h3>
-          <ul>
-            <li>The doctor-ready PDF report</li>
-            <li>Trigger patterns in Insights</li>
-            <li>The pressure at your own episodes, overlaid on the forecast chart</li>
-            <li>CSV export of every record</li>
-            <li>Unlimited medication reminders</li>
-          </ul>
-          <p class="muted">One purchase, not a subscription. It belongs to your Apple Account,
-            Family Sharing is on, and the current price is shown on the purchase button in
-            Settings, in your own currency.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="kicker">Your data</p>
-      <h2>There is no account, because there is nowhere for it to sign in to</h2>
-      <p>Your episodes, durations, severities, triggers, symptoms, medication and notes live in
-         a database inside the app on your iPhone. There is no server of ours, no analytics, no
-         advertising, and no third-party SDK collecting anything. Deleting the app deletes the
-         data, and Settings has a “Delete all data” button if you want it gone sooner.</p>
-      <p>One thing leaves the device: the rounded area described above, sent to Apple to look up
-         the pressure forecast. Your records are never sent with it. DizzyLog also does not read
-         from or write to Apple Health.</p>
-      <p><a href="privacy.html">Read the full privacy policy</a></p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="kicker">Common questions</p>
-      <h2>Before you write in</h2>
-
-      <div class="faq">
-        <h3>I paid, but the app still shows the lock</h3>
-        <p>Open <strong>Settings → DizzyLog Pro → Restore purchase</strong> while signed in
-           with the same Apple Account you bought it with. The unlock belongs to the Apple
-           Account rather than the phone, so it carries over to a new device. If nothing is
-           found, it is almost always a different Apple Account.</p>
-      </div>
-
-      <div class="faq">
-        <h3>Can I use it with no internet, or with location turned off?</h3>
-        <p>Yes to both, for recording. Episodes, the timer, history and the PDF are all
-           produced on the device, and the pressure stored with an episode comes from the
-           phone's own sensor. Only the 48-hour forecast needs a network and an area.</p>
-      </div>
-
-      <div class="faq">
-        <h3>Does it sync between my devices?</h3>
-        <p>No. There is no account and no server, so there is nothing to sync through. Your
-           records are included in your own iPhone or iCloud device backup, which only you
-           control, and they come back when you restore a phone from that backup.</p>
-      </div>
-
-      <div class="faq">
-        <h3>Which devices does it run on?</h3>
-        <p>iPhone only. The pressure forecast additionally needs iOS 16 or later; everything
-           else works without it.</p>
-      </div>
-
-      <div class="faq">
-        <h3>Something went wrong while I was recording an attack</h3>
-        <p>Tell me roughly when it happened and what you tapped. Nothing you write in the app is
-           visible to me, so the details you send are all I have to work from.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="kicker">Guide</p>
-      <h2>Reading before the appointment</h2>
-      <div class="guide">
-        <h3><a href="dizziness-diary.html">How to Keep a Dizziness Diary Your Doctor Can Actually Use</a></h3>
-        <p class="muted">What to write down when you have a dizzy spell — and how to summarize
-          it so a doctor can read it in a minute.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="support">
-    <div class="wrap">
-      <p class="kicker">Support</p>
-      <h2>Write to me directly</h2>
-      <div class="support">
-        <p class="mail"><a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
-        <p style="margin-top:12px">Questions, bug reports, requests, refund questions — all to
-          the same address.</p>
-        <p class="muted" style="margin-top:12px">I am one person and I read everything. Replies
-          usually take a day or two. English and Japanese are both fine.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="alert">
-        <h2>DizzyLog is a journal, not a medical device</h2>
-        <p>It records what you tell it. It does not diagnose, does not predict attacks, and does
-           not give treatment advice.</p>
-        <ul>
-          <li>New, sudden or severe dizziness needs a doctor, not an app.</li>
-          <li>Dizziness with chest pain, weakness on one side, trouble speaking, double vision or
-              sudden hearing loss is an emergency — seek care immediately.</li>
-          <li>Never change or stop a medication because of something you saw in a chart here.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
+</div>
 </main>
 
+<div class="help" id="support">
+  <div class="sheet">
+    <p><a href="support.html">Full details and FAQ</a></p>
+    <p class="mail"><a href="mailto:nosunosukawa@gmail.com">nosunosukawa@gmail.com</a></p>
+  </div>
+</div>
+
 <footer>
-  <div class="wrap">
+  <div class="sheet">
     <span>© 2026 Nobutaka Kawasaki</span>
-    <a href="privacy.html">Privacy policy</a>
-    <a href="mailto:nosunosukawa@gmail.com">Support</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
     <a href="index.ja.html" hreflang="ja" lang="ja">日本語</a>
   </div>
 </footer>
