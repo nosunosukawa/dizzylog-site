@@ -11,7 +11,7 @@
      Readers open this right after an attack or the night before an appointment,
      often while unwell. So: nothing moves, no repeating pattern, no saturated colour,
      pictures carry the argument and the prose is short.
-     The only thing allowed to tilt is a mark that means severity. */
+     The only marks that grow are the severity rings. */
   :root{
     color-scheme:light dark;
     --paper:#F4F7F9; --margin:#E7EEF3; --rule:#BFD1DC;
@@ -273,31 +273,31 @@
   <!-- The spread: left page = the screen during an attack, right page = the sheet you hand over -->
   <section class="hero">
     <h1>Write it down while it is still happening.</h1>
-    <p class="lead">Log a spinning, floating or lightheaded attack in three taps. One PDF for
-      the appointment. For Ménière's and BPPV.</p>
+    <p class="lead">Log a headache or a spinning, floating or lightheaded attack in three
+      taps. One PDF for the appointment. For Ménière's and BPPV.</p>
     <p><a class="getapp" href="https://apps.apple.com/us/app/id6799015322" target="_blank" rel="noopener">Download on the App Store</a></p>
     <p class="getnote">For iPhone (iOS 16 or later). Listed on the App Store as “Rin Sky: Vertigo Tracker”.</p>
 
     <figure class="shot">
-      <img src="assets/record-en.png" width="640" height="1387" loading="eager" decoding="async"
-           alt="The New episode screen: what kind of dizziness, how long it lasted and how bad it was, each a row of large buttons, with optional details below.">
+      <img src="assets/record-en.png" width="640" height="1391" loading="eager" decoding="async"
+           alt="The screen right after tapping Log now: the time is already saved, and it asks How bad? with three large choices — Mild, Rough, Need to lie down — where more rings mean a harder episode.">
       <figcaption>During an attack, this is all.</figcaption>
     </figure>
 
     <figure class="doc">
       <div class="docsheet">
-        <p class="docttl">Vertigo record report <span>Jul 9 – Aug 7</span></p>
+        <p class="docttl">Episode report (headache &amp; dizziness) <span>Jul 9 – Aug 7</span></p>
         <div class="docsum">
           <div><b class="num">9</b><span>episodes</span></div>
           <div><b class="num">9</b><span>days</span></div>
-          <div><b class="num">2.9</b><span>avg severity</span></div>
+          <div><b class="num">2.0/3</b><span>average severity</span></div>
         </div>
         <table class="docrows">
-          <thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Sev.</th></tr></thead>
+          <thead><tr><th scope="col">Date</th><th scope="col">AM</th><th scope="col">PM</th><th scope="col">Night</th></tr></thead>
           <tbody>
-            <tr><td>Aug 7, 7:15</td><td>Spinning</td><td>3</td></tr>
-            <tr><td>Aug 5, 14:15</td><td>Floating</td><td>2</td></tr>
-            <tr><td>Aug 2, 9:15</td><td>Spinning</td><td>4</td></tr>
+            <tr><td>Aug 7</td><td>++</td><td>—</td><td>—</td></tr>
+            <tr><td>Aug 5</td><td>—</td><td>+</td><td>—</td></tr>
+            <tr><td>Aug 2</td><td>+++</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
         <p class="docmore">6 more</p>
@@ -310,44 +310,40 @@
   <section class="row">
     <p class="kicker">During the attack</p>
     <figure class="fig">
-      <svg viewBox="0 0 560 108" width="560" height="108" role="img"
-           aria-label="The three questions the recording screen asks. What kind of dizziness: four choices. How long it lasted: four choices. How bad it was: five steps shown as a line that tilts further as it gets worse, from level at 1 to 45 degrees at 5.">
+      <svg viewBox="0 0 560 96" width="560" height="96" role="img"
+           aria-label="The three taps of a quick log. Log now saves the time and the air pressure. What hurts: headache, dizziness or both. How bad: three choices, marked by a dot, a dot in one ring, or a dot in two rings — the same as +, ++ and +++.">
         <g fill="none" stroke="var(--data)" stroke-width="1.5">
-          <rect x="1" y="30" width="36" height="24"/><rect x="44" y="30" width="36" height="24"/>
-          <rect x="87" y="30" width="36" height="24"/><rect x="130" y="30" width="36" height="24"/>
-          <rect x="196" y="30" width="36" height="24"/><rect x="239" y="30" width="36" height="24"/>
-          <rect x="282" y="30" width="36" height="24"/><rect x="325" y="30" width="36" height="24"/>
-          <rect x="391" y="30" width="30" height="30"/><rect x="425" y="30" width="30" height="30"/>
-          <rect x="459" y="30" width="30" height="30"/><rect x="493" y="30" width="30" height="30"/>
-          <rect x="527" y="30" width="30" height="30"/>
+          <rect x="130" y="34" width="72" height="28"/><rect x="208" y="34" width="72" height="28"/>
+          <rect x="286" y="34" width="72" height="28"/>
+          <rect x="372" y="28" width="56" height="40"/><rect x="434" y="28" width="56" height="40"/>
+          <rect x="496" y="28" width="56" height="40"/>
         </g>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="397" y1="45" x2="415" y2="45"/>
-          <line x1="431" y1="47.3" x2="449" y2="42.7"/>
-          <line x1="465" y1="49.1" x2="483" y2="40.9"/>
-          <line x1="499" y1="50.3" x2="517" y2="39.7"/>
-          <line x1="533" y1="51.4" x2="551" y2="38.6"/>
+        <g stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round">
+          <circle cx="40" cy="48" r="22"/>
+          <line x1="40" y1="38" x2="40" y2="58"/><line x1="30" y1="48" x2="50" y2="48"/>
         </g>
+        <g><circle cx="400" cy="48" r="3.2" fill="var(--accent)"/><circle cx="462" cy="48" r="3.2" fill="var(--accent)"/><circle cx="462" cy="48" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="524" cy="48" r="3.2" fill="var(--accent)"/><circle cx="524" cy="48" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="524" cy="48" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/></g>
         <g fill="var(--ink-soft)" font-size="14">
-          <text x="0" y="14">What kind?</text>
-          <text x="195" y="14">How long?</text>
-          <text x="390" y="14">How bad?</text>
+          <text x="0" y="14">Log now</text>
+          <text x="130" y="14">What hurts?</text>
+          <text x="372" y="14">How bad?</text>
         </g>
+        <g fill="var(--ink-soft)" font-size="12" text-anchor="middle"><text x="166" y="53">Headache</text><text x="244" y="53">Dizziness</text><text x="322" y="53">Both</text></g>
         <g fill="var(--ink-soft)" font-size="11.5" text-anchor="middle" class="ax">
-          <text x="406" y="78">1</text><text x="440" y="78">2</text><text x="474" y="78">3</text>
-          <text x="508" y="78">4</text><text x="542" y="78">5</text>
+          <text x="400" y="86">+</text><text x="462" y="86">++</text><text x="524" y="86">+++</text>
         </g>
       </svg>
     </figure>
-    <h2>Three questions</h2>
-    <p>One tap each. Nothing is typed.</p>
+    <h2>Three taps</h2>
+    <p>The first tap saves the time and the air pressure. Then what hurts, and how bad, on three
+      steps. Everything else can wait, and nothing is typed.</p>
   </section>
 
   <section class="row">
     <p class="kicker">Pressure and weather</p>
     <figure class="fig">
       <svg viewBox="0 0 560 234" width="560" height="234" role="img"
-           aria-label="A sample figure. The upper panel is a barometric pressure line in hPa; the lower panel is the run of attacks. Both share the same dates, Jul 28 to Aug 8, and the panels are separated by a rule. Attacks: Jul 29 at severity 2, Aug 2 at severity 4, Aug 5 at severity 2, Aug 7 at severity 3. None of the attack marks sits on a peak or a trough of the pressure line.">
+           aria-label="A sample figure. The upper panel is a barometric pressure line in hPa; the lower panel is the run of attacks. Both share the same dates, Jul 28 to Aug 8, and the panels are separated by a rule. Attacks: Jul 29 mild (+), Aug 2 severe (+++), Aug 5 mild (+), Aug 7 moderate (++). None of the attack marks sits on a peak or a trough of the pressure line.">
         <g class="ax" fill="var(--ink-soft)" font-size="12">
           <text x="0" y="12">Pressure (hPa)</text>
         </g>
@@ -366,15 +362,10 @@
               fill="none" stroke="var(--data)" stroke-width="2" stroke-linecap="round"/>
         <line x1="0" y1="140" x2="560" y2="140" stroke="var(--rule)" stroke-width="1"/>
         <text x="0" y="160" class="ax" font-size="12" fill="var(--ink-soft)">Attacks</text>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="73.4" y1="181.4" x2="98.6" y2="174.6"/>
-          <line x1="253.5" y1="185.6" x2="274.5" y2="170.4"/>
-          <line x1="384.4" y1="181.4" x2="409.6" y2="174.6"/>
-          <line x1="474.5" y1="184.1" x2="497.5" y2="171.9"/>
-        </g>
+        <g><circle cx="86" cy="178" r="3.2" fill="var(--accent)"/><circle cx="264" cy="178" r="3.2" fill="var(--accent)"/><circle cx="264" cy="178" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="264" cy="178" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="397" cy="178" r="3.2" fill="var(--accent)"/><circle cx="486" cy="178" r="3.2" fill="var(--accent)"/><circle cx="486" cy="178" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/></g>
         <g class="ax" fill="var(--ink-soft)" font-size="11" text-anchor="middle">
-          <text x="86" y="203">2</text><text x="264" y="203">4</text>
-          <text x="397" y="203">2</text><text x="486" y="203">3</text>
+          <text x="86" y="203">+</text><text x="264" y="203">+++</text>
+          <text x="397" y="203">+</text><text x="486" y="203">++</text>
           <text x="86" y="224">Jul 29</text><text x="264" y="224">Aug 2</text>
           <text x="397" y="224">Aug 5</text><text x="486" y="224">Aug 7</text>
         </g>
@@ -383,8 +374,8 @@
     <h2>Two records, one timeline</h2>
     <p>These are tallies of your own entries, not causes or predictions.</p>
     <figure class="shot railnote">
-      <img src="assets/insights-en.png" width="640" height="1387" loading="lazy" decoding="async"
-           alt="The Insights screen: episodes by duration, trigger patterns as percentages, average sleep on episode days and average pressure at episodes.">
+      <img src="assets/insights-en.png" width="640" height="1391" loading="lazy" decoding="async"
+           alt="The Monthly summary (Pro) for the last 30 days: days with an episode, days with medication, days impaired, a breakdown by headache and dizziness with average severity 1.8 of 3, and a weekday by time-of-day grid.">
       <figcaption>Also tallies of your entries.</figcaption>
     </figure>
   </section>
@@ -394,13 +385,13 @@
     <table class="cmp">
       <thead><tr><th scope="col">Free, forever</th><th scope="col">Rin Sky Pro</th></tr></thead>
       <tbody>
-        <tr><td>Recording and timer</td><td>Doctor-ready PDF</td></tr>
-        <tr><td>Recent history, pressure chart, daily logs</td><td>Full history, all insights, pre-drop alerts</td></tr>
-        <tr><td>Record reminders</td><td>CSV export</td></tr>
+        <tr><td>Recording, the timer, medicines and daily logs</td><td>Doctor-ready PDF and visit prep</td></tr>
+        <tr><td>History for the last 3 days (every view for your first 14 days)</td><td>Full history and the monthly summary</td></tr>
+        <tr><td>Pressure for the next 24 hours, record reminders</td><td>Pressure a week ahead, pre-drop alerts, CSV export</td></tr>
       </tbody>
     </table>
     <h2>Recording is free</h2>
-    <p>No ads, and recording never locks. Pro is a monthly plan with a 14-day free trial, a yearly plan, or a one-time purchase — all unlock the same features.</p>
+    <p>No ads, and recording never locks. Alerts before the pressure falls are free for your first 14 days. Pro is a monthly plan with a 14-day free trial, a yearly plan, or a one-time purchase — all unlock the same features.</p>
   </section>
 
   <section class="row">
@@ -410,13 +401,7 @@
            aria-label="Records live in a database inside the app on the phone. The only thing that leaves the device is a rounded area, sent to look up the pressure forecast; the records themselves never leave.">
         <rect x="1" y="12" width="150" height="106" fill="none" stroke="var(--ink-soft)"
               stroke-width="1.5" rx="12"/>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="24" y1="46" x2="46" y2="46"/>
-          <line x1="62" y1="48.3" x2="84" y2="43.7"/>
-          <line x1="100" y1="50.1" x2="122" y2="41.9"/>
-          <line x1="24" y1="80.1" x2="46" y2="71.9"/>
-          <line x1="62" y1="79" x2="84" y2="73"/>
-        </g>
+        <g><circle cx="37" cy="44" r="3.2" fill="var(--accent)"/><circle cx="75" cy="44" r="3.2" fill="var(--accent)"/><circle cx="75" cy="44" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="113" cy="44" r="3.2" fill="var(--accent)"/><circle cx="113" cy="44" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="113" cy="44" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="37" cy="76" r="3.2" fill="var(--accent)"/><circle cx="37" cy="76" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="75" cy="76" r="3.2" fill="var(--accent)"/></g>
         <text x="76" y="108" font-size="12.5" fill="var(--ink-soft)" text-anchor="middle">Records</text>
         <line x1="164" y1="65" x2="246" y2="65" stroke="var(--ink-soft)" stroke-width="1.5"/>
         <polygon points="256,65 244,60 244,70" fill="var(--ink-soft)"/>

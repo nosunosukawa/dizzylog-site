@@ -9,7 +9,7 @@
   /* 第2波「ノートの見開き」。左ページ＝発作の側（記録の画面）、右ページ＝受診の側（渡す紙）。
      2枚の紙は綴じ目1本で分かれる。読む人は発作の直後か受診の前夜に、気分が悪い状態で開く。
      だから: 動くものを置かない・繰り返し模様を置かない・彩度で殴らない・絵で語り文を短くする。
-     傾けてよいのは「強さを表す印」だけ。ページ本体は1pxも傾けない。 */
+     大きさが変わってよいのは「強さを表す輪」だけ。ページ本体は1pxも傾けない。 */
   :root{
     color-scheme:light dark;
     --paper:#F4F7F9; --margin:#E7EEF3; --rule:#BFD1DC;
@@ -275,30 +275,30 @@
   <!-- 見開き: 左ページ＝発作の最中の画面 / 右ページ＝受診で渡す紙 -->
   <section class="hero">
     <h1>発作が起きているあいだに、書き留めておく。</h1>
-    <p class="lead">回転性・浮動性・立ちくらみの発作を3タップで記録して、受診用の1つのPDFにまとめて渡せます。メニエール病・BPPVに。</p>
+    <p class="lead">頭痛や、回転性・浮動性・立ちくらみの発作を3タップで記録して、受診用の1つのPDFにまとめて渡せます。メニエール病・BPPVに。</p>
     <p><a class="getapp" href="https://apps.apple.com/jp/app/id6799015322" target="_blank" rel="noopener">App Store で入手</a></p>
     <p class="getnote">iPhone 用（iOS 16 以降）。App Store での正式名は「Rin Sky: Vertigo Tracker」（日本では「Rin Sky - 頭痛・めまい・片頭痛の記録と気圧予報」）です。</p>
 
     <figure class="shot">
-      <img src="assets/record-ja.png" width="640" height="1387" loading="eager" decoding="async"
-           alt="「発作を記録」の画面。どんなめまい？・どのくらい続いた？・つらさは？の3つの質問が大きなボタンで並び、その下に任意の「詳細」がある。">
+      <img src="assets/record-ja.png" width="640" height="1391" loading="eager" decoding="async"
+           alt="「いま痛い」を押した直後の画面。時刻はもう記録されていて、「つらさは？」に大きな3つの選択肢（軽い・つらい・横になりたい）が並ぶ。輪が多いほど、つらさが強い印。">
       <figcaption>発作の最中に、これだけ。</figcaption>
     </figure>
 
     <figure class="doc">
       <div class="docsheet">
-        <p class="docttl">めまい記録レポート <span>7月9日 – 8月7日</span></p>
+        <p class="docttl">発作記録レポート（頭痛・めまい） <span>7月9日 – 8月7日</span></p>
         <div class="docsum">
           <div><b class="num">9</b><span>発作回数</span></div>
           <div><b class="num">9</b><span>発作のあった日数</span></div>
-          <div><b class="num">2.9</b><span>平均の強さ</span></div>
+          <div><b class="num">2.0/3</b><span>平均の強さ</span></div>
         </div>
         <table class="docrows">
-          <thead><tr><th scope="col">日時</th><th scope="col">種類</th><th scope="col">強さ</th></tr></thead>
+          <thead><tr><th scope="col">日付</th><th scope="col">午前</th><th scope="col">午後</th><th scope="col">夜</th></tr></thead>
           <tbody>
-            <tr><td>8月7日 7:15</td><td>回転性</td><td>3</td></tr>
-            <tr><td>8月5日 14:15</td><td>浮動性</td><td>2</td></tr>
-            <tr><td>8月2日 9:15</td><td>回転性</td><td>4</td></tr>
+            <tr><td>8月7日</td><td>＋＋</td><td>—</td><td>—</td></tr>
+            <tr><td>8月5日</td><td>—</td><td>＋</td><td>—</td></tr>
+            <tr><td>8月2日</td><td>＋＋＋</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
         <p class="docmore">ほか6件</p>
@@ -311,47 +311,42 @@
   <section class="row">
     <p class="kicker">発作の最中に</p>
     <figure class="fig">
-      <svg viewBox="0 0 560 132" width="560" height="132" role="img"
-           aria-label="記録の画面が尋ねる3つ。どんなめまい？は4つの選択肢、どのくらい？は4つの選択肢、つらさは？は水平から45度まで段々と傾いていく5本の線で、1から5の目盛になっている。">
+      <svg viewBox="0 0 560 122" width="560" height="122" role="img"
+           aria-label="すぐ記録するときの3タップ。「いま痛い」で時刻と気圧が残る。どこがつらい？は頭痛・めまい・頭痛とめまいの3つ。つらさは？は3つで、点・輪1つと点・輪2つと点の印。＋・＋＋・＋＋＋と同じ数え方。">
         <g fill="none" stroke="var(--data)" stroke-width="1.5">
-          <rect x="1" y="30" width="36" height="24"/><rect x="44" y="30" width="36" height="24"/>
-          <rect x="87" y="30" width="36" height="24"/><rect x="130" y="30" width="36" height="24"/>
-          <rect x="196" y="30" width="36" height="24"/><rect x="239" y="30" width="36" height="24"/>
-          <rect x="282" y="30" width="36" height="24"/><rect x="325" y="30" width="36" height="24"/>
-          <rect x="391" y="30" width="30" height="30"/><rect x="425" y="30" width="30" height="30"/>
-          <rect x="459" y="30" width="30" height="30"/><rect x="493" y="30" width="30" height="30"/>
-          <rect x="527" y="30" width="30" height="30"/>
+          <rect x="130" y="34" width="72" height="28"/><rect x="208" y="34" width="72" height="28"/>
+          <rect x="286" y="34" width="72" height="28"/>
+          <rect x="372" y="28" width="56" height="40"/><rect x="434" y="28" width="56" height="40"/>
+          <rect x="496" y="28" width="56" height="40"/>
         </g>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="397" y1="45" x2="415" y2="45"/>
-          <line x1="431" y1="47.3" x2="449" y2="42.7"/>
-          <line x1="465" y1="49.1" x2="483" y2="40.9"/>
-          <line x1="499" y1="50.3" x2="517" y2="39.7"/>
-          <line x1="533" y1="51.4" x2="551" y2="38.6"/>
+        <g stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round">
+          <circle cx="40" cy="48" r="22"/>
+          <line x1="40" y1="38" x2="40" y2="58"/><line x1="30" y1="48" x2="50" y2="48"/>
         </g>
+        <g><circle cx="400" cy="48" r="3.2" fill="var(--accent)"/><circle cx="462" cy="48" r="3.2" fill="var(--accent)"/><circle cx="462" cy="48" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="524" cy="48" r="3.2" fill="var(--accent)"/><circle cx="524" cy="48" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="524" cy="48" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/></g>
         <g fill="var(--ink-soft)" font-size="14">
-          <text x="0" y="14">どんなめまい？</text>
-          <text x="195" y="14">どのくらい？</text>
-          <text x="390" y="14">つらさは？</text>
+          <text x="0" y="14">いま痛い</text>
+          <text x="130" y="14">どこがつらい？</text>
+          <text x="372" y="14">つらさは？</text>
         </g>
+        <g fill="var(--ink-soft)" font-size="11" text-anchor="middle"><text x="166" y="53">頭痛</text><text x="244" y="53">めまい</text><text x="322" y="53">頭痛とめまい</text></g>
         <g fill="var(--ink-soft)" font-size="11.5" text-anchor="middle" class="ax">
-          <text x="406" y="76">1</text><text x="440" y="76">2</text><text x="474" y="76">3</text>
-          <text x="508" y="76">4</text><text x="542" y="76">5</text>
+          <text x="400" y="86">+</text><text x="462" y="86">++</text><text x="524" y="86">+++</text>
         </g>
         <g fill="var(--ink-soft)" font-size="12.5">
-          <text x="0" y="106">つらさは、数字ではなく傾く線で選びます。</text>
+          <text x="0" y="114">つらさは、輪の数で選びます（頭痛ダイアリーの＋と同じ3段階）。</text>
         </g>
       </svg>
     </figure>
-    <h2>聞かれるのは3つだけ</h2>
-    <p>大きなボタンを1回ずつ。文字は打ちません。ほかは全部あとから足せます。</p>
+    <h2>3タップで残る</h2>
+    <p>1回目で時刻と気圧が残ります。続けて、どこがつらいか・どのくらいつらいか（3段階）。文字は打ちません。ほかは全部あとから足せます。</p>
   </section>
 
   <section class="row">
     <p class="kicker">気圧と天気</p>
     <figure class="fig">
       <svg viewBox="0 0 560 234" width="560" height="234" role="img"
-           aria-label="見本の図。上の段は気圧の折れ線（hPa）、下の段は発作の並び。x軸は7月28日から8月8日までの同じ日付で、2つの段は罫で分けてある。発作は7月29日に強さ2、8月2日に強さ4、8月5日に強さ2、8月7日に強さ3。発作の印は気圧の谷にも山にも重なっていない。">
+           aria-label="見本の図。上の段は気圧の折れ線（hPa）、下の段は発作の並び。x軸は7月28日から8月8日までの同じ日付で、2つの段は罫で分けてある。発作は7月29日に軽度（＋）、8月2日に重度（＋＋＋）、8月5日に軽度（＋）、8月7日に中等度（＋＋）。発作の印は気圧の谷にも山にも重なっていない。">
         <g class="ax" fill="var(--ink-soft)" font-size="12">
           <text x="0" y="12">気圧（hPa）</text>
         </g>
@@ -370,15 +365,10 @@
               fill="none" stroke="var(--data)" stroke-width="2" stroke-linecap="round"/>
         <line x1="0" y1="140" x2="560" y2="140" stroke="var(--rule)" stroke-width="1"/>
         <text x="0" y="160" class="ax" font-size="12" fill="var(--ink-soft)">発作</text>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="73.4" y1="181.4" x2="98.6" y2="174.6"/>
-          <line x1="253.5" y1="185.6" x2="274.5" y2="170.4"/>
-          <line x1="384.4" y1="181.4" x2="409.6" y2="174.6"/>
-          <line x1="474.5" y1="184.1" x2="497.5" y2="171.9"/>
-        </g>
+        <g><circle cx="86" cy="178" r="3.2" fill="var(--accent)"/><circle cx="264" cy="178" r="3.2" fill="var(--accent)"/><circle cx="264" cy="178" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="264" cy="178" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="397" cy="178" r="3.2" fill="var(--accent)"/><circle cx="486" cy="178" r="3.2" fill="var(--accent)"/><circle cx="486" cy="178" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/></g>
         <g class="ax" fill="var(--ink-soft)" font-size="11" text-anchor="middle">
-          <text x="86" y="203">2</text><text x="264" y="203">4</text>
-          <text x="397" y="203">2</text><text x="486" y="203">3</text>
+          <text x="86" y="203">+</text><text x="264" y="203">+++</text>
+          <text x="397" y="203">+</text><text x="486" y="203">++</text>
           <text x="86" y="224">7/29</text><text x="264" y="224">8/2</text>
           <text x="397" y="224">8/5</text><text x="486" y="224">8/7</text>
         </g>
@@ -387,8 +377,8 @@
     <h2>同じ時間軸に、並べるだけ</h2>
     <p>ここに出るのは記録の集計で、原因の特定や発作の予測ではありません。</p>
     <figure class="shot railnote">
-      <img src="assets/insights-ja.png" width="640" height="1387" loading="lazy" decoding="async"
-           alt="「分析」の画面。持続時間の分布、トリガーの傾向の割合、発作日の平均睡眠、発作時の平均気圧が並んでいる。">
+      <img src="assets/insights-ja.png" width="640" height="1391" loading="lazy" decoding="async"
+           alt="Pro の「月間サマリー」（過去30日）。発作のあった日・服薬日数・支障ありの日数、頭痛とめまいの内訳と平均のつらさ（3段階中1.8）、曜日と時間帯のマス目が並んでいる。">
       <figcaption>これも記録の集計です。</figcaption>
     </figure>
   </section>
@@ -398,13 +388,13 @@
     <table class="cmp">
       <thead><tr><th scope="col">無料・期限なし</th><th scope="col">Rin Sky Pro</th></tr></thead>
       <tbody>
-        <tr><td>記録とタイマー</td><td>受診用PDF</td></tr>
-        <tr><td>直近の履歴・気圧グラフ・生活ログ</td><td>全期間の履歴・分析のすべて・大きく下がる前の通知</td></tr>
-        <tr><td>記録リマインダー</td><td>CSV書き出し</td></tr>
+        <tr><td>記録とタイマー・薬・生活ログ</td><td>受診用PDFと受診の準備</td></tr>
+        <tr><td>直近3日のふりかえり（はじめの14日間は全部の表示）</td><td>全期間のふりかえりと月間サマリー</td></tr>
+        <tr><td>これから24時間の気圧・記録のお知らせ</td><td>1週間先までの気圧・大きく下がる前の通知・CSV書き出し</td></tr>
       </tbody>
     </table>
     <h2>記録はずっと無料</h2>
-    <p>広告はありません。記録に鍵はかかりません。Pro は月額（14日間の無料トライアル付き）・年額・買い切りから選べます。中身は同じです。</p>
+    <p>広告はありません。記録に鍵はかかりません。気圧が下がる前のお知らせは、はじめの14日間は無料です。Pro は月額（14日間の無料トライアル付き）・年額・買い切りから選べます。中身は同じです。</p>
   </section>
 
   <section class="row">
@@ -414,13 +404,7 @@
            aria-label="記録は端末の中のデータベースに入っている。端末から外に出るのは、気圧を調べるために丸めた地域だけで、記録の内容は出ていかない。">
         <rect x="1" y="12" width="150" height="106" fill="none" stroke="var(--ink-soft)"
               stroke-width="1.5" rx="12"/>
-        <g stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
-          <line x1="24" y1="46" x2="46" y2="46"/>
-          <line x1="62" y1="48.3" x2="84" y2="43.7"/>
-          <line x1="100" y1="50.1" x2="122" y2="41.9"/>
-          <line x1="24" y1="80.1" x2="46" y2="71.9"/>
-          <line x1="62" y1="79" x2="84" y2="73"/>
-        </g>
+        <g><circle cx="37" cy="44" r="3.2" fill="var(--accent)"/><circle cx="75" cy="44" r="3.2" fill="var(--accent)"/><circle cx="75" cy="44" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="113" cy="44" r="3.2" fill="var(--accent)"/><circle cx="113" cy="44" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="113" cy="44" r="11" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="37" cy="76" r="3.2" fill="var(--accent)"/><circle cx="37" cy="76" r="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/><circle cx="75" cy="76" r="3.2" fill="var(--accent)"/></g>
         <text x="76" y="108" font-size="12.5" fill="var(--ink-soft)" text-anchor="middle">記録</text>
         <g stroke="var(--ink-soft)" stroke-width="1.5" fill="none">
           <line x1="164" y1="65" x2="246" y2="65"/>

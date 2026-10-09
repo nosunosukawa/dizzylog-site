@@ -152,39 +152,45 @@
   <section class="row">
     <p class="kicker">During the attack</p>
     <h2>Built to be usable when you cannot look at a screen for long</h2>
-    <p>The recording screen asks three things, and each one is a single tap on a big target.
-       Nothing is typed. Nothing is scrolled through.</p>
+    <p>Tap <strong>Log now</strong> in the middle of the tab bar. That one tap saves the time,
+       and the air pressure from the iPhone's barometer if it can be read. Two short questions
+       follow, each a single tap on a big target — and both can be skipped. Close the sheet
+       halfway and the entry stays.</p>
     <ul>
-      <li><strong>What kind of dizziness?</strong> Spinning (vertigo), floating / rocking,
-          lightheaded, or other.</li>
-      <li><strong>How long did it last?</strong> Under a minute, 1–20 minutes, 20 minutes to
-          half a day, or more than half a day.</li>
-      <li><strong>How bad was it?</strong> Five steps, shown as a line that tilts further as it
-          gets worse — because what people actually say is that the world tipped over.</li>
+      <li><strong>What hurts?</strong> Headache, dizziness, or both.</li>
+      <li><strong>How bad?</strong> Three steps, the same as the + / ++ / +++ of a paper
+        headache diary: mild (little disruption), moderate (efficiency halved), severe (had to
+        lie down). They are shown as rings — more rings mean a harder episode — so they can be
+        read without telling colors apart.</li>
     </ul>
-
-    <h3>The timer</h3>
+    <p>After that it may ask whether you took a medicine, and which other symptoms came with it.
+       Nothing is typed.</p>
+    <h3>The full form, and the timer</h3>
+    <p>The full entry form asks what hurts, what kind of dizziness it was (spinning, floating /
+       rocking, lightheaded, or other — only asked for dizziness), how long it lasted (under a
+       minute, 1–20 minutes, 20 minutes to half a day, more than half a day) and how bad it was,
+       on the same three steps.</p>
     <p>If you can, there is a timer: tap <strong>“Having an episode now”</strong> when it starts
        and <strong>“It's over — log it”</strong> when it stops. The duration is then measured
-       rather than estimated afterwards, and that question is already answered when the form
-       opens. The timer survives the app being closed, so you can put the phone down.</p>
+       rather than estimated afterwards. The timer survives the app being closed, so you can put
+       the phone down.</p>
 
     <h3>The optional part, for later</h3>
     <p>Under “Details (optional)” you can add possible triggers — head movement or rolling over,
        standing up quickly, poor sleep, stress, salty food, caffeine, alcohol, weather, menstrual
-       cycle — and symptoms that came with it, such as tinnitus, muffled hearing, ear fullness,
-       nausea, vomiting or headache. Plus what you took and a free note. None of it is required
-       to save.</p>
+       cycle — and symptoms that came with it, such as throbbing or pressing pain, tinnitus,
+       muffled hearing, ear fullness, nausea, vomiting, headache, or sensitivity to light, sound
+       or smell. Plus the medicine you took, whether it helped, and a free note. None of it is
+       required to save.</p>
     <p>You can also enter an episode you missed, on a past date.</p>
-    <p>Air pressure is attached by itself: the iPhone's own barometer is read at the moment you
-       save, so the number stored with the episode is a measurement, not a forecast. If the
-       sensor cannot be read, the field is simply left empty and never filled in later.</p>
+    <p>The air pressure stored with an episode is a measurement, not a forecast: the iPhone's own
+       barometer is read at the moment you save. If the sensor cannot be read, the field is simply
+       left empty and never filled in later.</p>
 
     <figure class="shot">
-      <img src="assets/record-en.png" width="640" height="1387" loading="lazy" decoding="async"
-           alt="The New episode screen: what kind of dizziness, how long it lasted, how bad it was, with optional triggers and other symptoms below.">
-      <figcaption>Three questions, then Save. The severity row uses a tilting line rather than a
-        number.</figcaption>
+      <img src="assets/record-en.png" width="640" height="1391" loading="lazy" decoding="async"
+           alt="The screen right after tapping Log now: the time is already saved, and it asks How bad? with three large choices — Mild, Rough, Need to lie down — where more rings mean a harder episode.">
+      <figcaption>Right after Log now. Three steps of severity, marked with rings.</figcaption>
     </figure>
   </section>
 
@@ -200,28 +206,32 @@
 
     <h3>What is on the sheet</h3>
     <ul>
+      <li>Your questions for the doctor, on the first page, if you wrote them in visit prep.</li>
       <li>Summary: number of episodes and days with episodes — plus your average sleep and
-          stress, if you also keep the daily log.</li>
-      <li>Breakdowns: by type, by duration, by severity, and tallies of the triggers and
-          accompanying symptoms you ticked.</li>
-      <li>The episode list itself — date and time, type, duration, severity, air pressure, the
-          triggers, symptoms and medication for that episode, and your note.</li>
+        stress, if you also keep the daily log.</li>
+      <li>Breakdowns: by type, by duration, by severity (+ / ++ / +++), and tallies of the
+        triggers and accompanying symptoms you ticked.</li>
+      <li>A medication summary: how many times and on how many days each medicine was taken,
+        and whether it helped.</li>
+      <li>The diary itself, in four-week pages laid out like a paper headache diary: each day has
+        a pain row and a medicine row, split into morning, afternoon and night, with a memo of the
+        time, type, duration, symptoms, triggers, air pressure and your note.</li>
     </ul>
-    <p>It is text and one table. No charts, nothing dressed up. The report also carries its own
+    <p>It is text and tables. No charts, nothing dressed up. The report also carries its own
        footer, in plain words: it lists entries recorded by the patient, it contains no diagnosis
-       or medical assessment, and the duration bands are self-reported.</p>
+       or medical assessment, and severity and duration are self-reported.</p>
     <p>The preview is built from your own entries, so you can see what the doctor will see before
        you generate the file.</p>
 
     <h3>If your clinic wants the raw numbers</h3>
     <p>There is also a CSV export of every episode — one row each, with the date, start time,
-       type, duration band, measured seconds, severity, pressure in hPa, triggers, symptoms,
-       medication and note. It is written as UTF-8 with a byte-order mark so spreadsheets open it
+       headache or dizziness, type, duration band, measured seconds, severity (1–3), pressure in
+       hPa, medication and whether it helped, triggers, symptoms and note. It is written as UTF-8 with a byte-order mark so spreadsheets open it
        without mangling the text.</p>
 
     <figure class="shot">
-      <img src="assets/report-en.png" width="640" height="1387" loading="lazy" decoding="async"
-           alt="The Doctor report screen showing a preview: 9 episodes, 9 days with episodes, average severity 2.9, and a dated list of episodes.">
+      <img src="assets/report-en.png" width="640" height="1391" loading="lazy" decoding="async"
+           alt="The Doctor report (PDF) screen with sample data: 12 episodes, 12 days with episodes, average severity 1.8 of 3, then a dated diary with + marks for morning, afternoon and night and the medicines taken.">
       <figcaption>The preview is built from your own entries.</figcaption>
     </figure>
   </section>
@@ -233,9 +243,9 @@
     <ul>
       <li><strong>Pressure at your episodes</strong> — measured by your iPhone's barometer at the
           moment you logged, stored with that record.</li>
-      <li><strong>A 48-hour pressure forecast</strong> for your area, from Apple Weather, so you
-          can see what is coming. Pro can overlay the pressure at your own episodes on the same
-          chart.</li>
+      <li><strong>A pressure forecast</strong> for your area, from Apple Weather, so you can see
+        what is coming: the next 24 hours for free, up to a week ahead with Pro. Pro can also
+        overlay the pressure at your own episodes on the same chart.</li>
     </ul>
     <p>Both are shown as facts about the air, in the unit your region uses — hPa in most of the
        world, inHg in the United States. What the app will never do is tell you that pressure
@@ -268,17 +278,18 @@
     <table class="cmp">
       <thead><tr><th scope="col">Free, forever</th><th scope="col">Rin Sky Pro</th></tr></thead>
       <tbody>
-        <tr><td>Unlimited episode recording, with the timer</td><td>The doctor-ready PDF report</td></tr>
+        <tr><td>Unlimited episode recording, with the timer</td><td>The doctor-ready PDF report and visit prep</td></tr>
         <tr><td>Triggers, accompanying symptoms, medication, notes</td><td>Trigger patterns in Insights</td></tr>
         <tr><td>Entering an episode you missed, on a past date</td><td>The pressure at your own episodes, overlaid on the forecast chart</td></tr>
-        <tr><td>Recent history, calendar and day view</td><td>Full history, and CSV export of every record</td></tr>
-        <tr><td>The daily log — sleep, stress, salt, water, caffeine, alcohol</td><td>Unlimited medication reminders</td></tr>
-        <tr><td>Record reminders</td><td>All insights (by month, type, duration and severity)</td></tr>
+        <tr><td>History for the last 3 days</td><td>Full history, the monthly summary, and CSV export of every record</td></tr>
+        <tr><td>The daily log — sleep, stress, water, skipped meals, period and more</td><td>Unlimited medication reminders</td></tr>
+        <tr><td>Record reminders, and the “did it help?” question</td><td>The pressure forecast up to a week ahead</td></tr>
         <tr><td>The 24-hour pressure forecast for your area</td><td>Alerts before big pressure drops</td></tr>
         <tr><td>One medication reminder</td><td></td></tr>
         <tr><td>Light and dark appearance, in English or Japanese</td><td></td></tr>
       </tbody>
     </table>
+    <p style="margin-top:14px">Free for your first 14 days: every History view (two weeks, month, diary), and the alerts before the pressure falls.</p>
     <p style="margin-top:14px">Choose a monthly plan (14-day free trial), a yearly plan (both auto-renewing, cancel anytime from your Apple
       Account settings), or a one-time purchase. All belong to your Apple Account, and the current
       prices are shown in the app, in your own currency.</p>
@@ -297,8 +308,8 @@
     <p><a href="privacy.html">Read the full privacy policy</a></p>
 
     <figure class="shot">
-      <img src="assets/insights-en.png" width="640" height="1387" loading="lazy" decoding="async"
-           alt="The Insights screen: episodes by duration, trigger patterns as percentages, average sleep on episode days, and average pressure at episodes.">
+      <img src="assets/insights-en.png" width="640" height="1391" loading="lazy" decoding="async"
+           alt="The Monthly summary (Pro) for the last 30 days: days with an episode, days with medication, days impaired, a breakdown by headache and dizziness with average severity 1.8 of 3, and a weekday by time-of-day grid.">
       <figcaption>Insights are tallies of what you entered. The line under them says so, in the
         app, every time.</figcaption>
     </figure>
@@ -320,7 +331,7 @@
       <h3>Can I use it with no internet, or with location turned off?</h3>
       <p>Yes to both, for recording. Episodes, the timer, history and the PDF are all produced on
          the device, and the pressure stored with an episode comes from the phone's own sensor.
-         Only the 48-hour forecast needs a network and an area.</p>
+         Only the pressure forecast needs a network and an area.</p>
     </div>
 
     <div class="faq">
