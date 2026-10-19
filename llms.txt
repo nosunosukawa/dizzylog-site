@@ -1,8 +1,8 @@
-# Rin Sky: Vertigo Tracker
+# Vertigo Tracker
 
-> An iPhone vertigo and dizziness diary (formerly DizzyLog / めまい日記). Log a spinning, floating or lightheaded attack, or a headache, the moment it happens, and turn your records into a PDF for your doctor. Not related to "Rin: Migraine Tracker", which is a different app from a different developer.
+> An iPhone vertigo and dizziness diary (formerly Rin Sky / めまい日記). Log a spinning, floating or lightheaded attack, or a headache, the moment it happens, and turn your records into a PDF for your doctor. Not related to "Rin: Migraine Tracker", which is a different app from a different developer.
 
-App Store name: "Rin Sky: Vertigo Tracker" (US) / 「Rin Sky - 頭痛・めまい・片頭痛の記録と気圧予報」 (Japan). App Store ID 6799015322. Category: Medical. It is a journal, not a medical device: it does not diagnose or predict attacks.
+App Store name: "Vertigo Tracker" (US) / 「めまい手帳 - 頭痛・気圧の記録と予報」 (Japan). App Store ID 6799015322. Category: Medical. It is a journal, not a medical device: it does not diagnose or predict attacks.
 
 ## What it does
 
@@ -10,7 +10,7 @@ App Store name: "Rin Sky: Vertigo Tracker" (US) / 「Rin Sky - 頭痛・めま�
 - Timer: start it when an attack begins, stop it when it ends, and the duration is measured instead of remembered
 - Optional details afterwards: possible triggers, accompanying symptoms (tinnitus, ear fullness, nausea, headache and more), medicines and whether they helped, notes
 - Barometric pressure: the iPhone's built-in barometer is read the moment a record is saved; the pressure forecast for your area (Apple's weather service) is shown on the same timeline
-- Doctor PDF for the last 30 days, 90 days or all time (a Rin Sky Pro feature; a sample is always viewable); CSV export
+- Doctor PDF for the last 30 days, 90 days or all time (a Vertigo Tracker Pro feature; a sample is always viewable); CSV export
 - Records stay in a database on the device. No server, no account. The only thing that leaves the device is a rounded area used to look up the pressure forecast
 
 ## Who it is for
